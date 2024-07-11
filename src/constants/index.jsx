@@ -1,10 +1,11 @@
-import { HomeIcon, UserIcon } from "@heroicons/react/20/solid";
+import { CalendarIcon, GlobeAmericasIcon, HomeIcon, PhoneIcon, UserIcon } from "@heroicons/react/20/solid";
+import { LogOutIcon, Medal } from "lucide-react";
 
 const D = {
 DASHBOARDLINKS: [
     {
         name: "Overview",
-        path: "/",
+        path: "",
         Icon: <HomeIcon width={20} height={20}/>
     },
     {
@@ -20,27 +21,27 @@ DASHBOARDLINKS: [
     {
         name: "Experience",
         path: "experience",
-        Icon: <HomeIcon width={20} height={20}/>
+        Icon: <CalendarIcon width={20} height={20}/>
     },
     {
         name: "Projects",
         path: "projects",
-        Icon: <HomeIcon width={20} height={20}/>
+        Icon: <Medal width={20} height={20}/>
     },
     {
         name: "Contact",
         path: "contact",
-        Icon: <HomeIcon width={20} height={20}/>
+        Icon: <PhoneIcon width={20} height={20}/>
     },
     {
         name: "Socials",
         path: "socials",
-        Icon: <HomeIcon width={20} height={20}/>
+        Icon: <GlobeAmericasIcon width={20} height={20}/>
     },
     {
         name: "Log Out",
         path: "/",
-        Icon: <HomeIcon width={20} height={20}/>
+        Icon: <LogOutIcon width={20} height={20}/>
     },
     
 ],
