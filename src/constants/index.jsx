@@ -29,6 +29,11 @@ DASHBOARDLINKS: [
         Icon: <Medal width={20} height={20}/>
     },
     {
+        name: "Achievements",
+        path: "achievements",
+        Icon: <Medal width={20} height={20}/>
+    },
+    {
         name: "Contact",
         path: "contact",
         Icon: <PhoneIcon width={20} height={20}/>

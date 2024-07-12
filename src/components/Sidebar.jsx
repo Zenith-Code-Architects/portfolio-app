@@ -7,16 +7,16 @@ const Sidebar = () => {
 
     return (
         <>
-        <div>
-            <div className="bg-black/70 text-white h-[76px] flex items-center justify-center">
-            <span className="text-5xl" >ZCA </span> portfolio
-            </div> 
-            <div className=" w-[200px] bg-primary text-white">
-                <div className="px-3 pt-4 flex flex-col gap-y-7">
+        <div className="flex flex-row gap-x-4">
+            {/* <div className="bg-white text-primary flex flex-col">
+            <span className="text-3xl" >ZCA </span> portfolio
+            </div>  */}
+            <div className=" w-screen bg-primary/70 text-white">
+                <div className="py-3 flex flex-row gap-x-7 justify-center">
                 {D.DASHBOARDLINKS.map(
                     (item, index) => {
                         return <Link key={index} to={item.path}>
-                            <div id="dashboard-links" className="flex gap-x-2 content-center text-base shadow-sm rounded-lg p-4 border-t-4  border-b-4 border-blue-700 hover:bg-white hover:text-primary hover:shadow-lg transition duration-300 ease-in-out}"> 
+                            <div id="dashboard-links" className="flex gap-x-2 content-center text-sm shadow-sm rounded-lg p-4 border-b-[3px]  border-r-[3px] border-gray-900 hover:bg-white hover:text-primary hover:shadow-lg transition duration-300 ease-in-out}"> 
                             {item.Icon}{item.name}
                             </div>  
                             </Link>
