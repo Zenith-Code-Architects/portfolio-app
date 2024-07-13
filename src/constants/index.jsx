@@ -3,11 +3,7 @@ import { LogOutIcon, Medal } from "lucide-react";
 
 const D = {
 DASHBOARDLINKS: [
-    {
-        name: "Overview",
-        path: "",
-        Icon: <HomeIcon width={20} height={20}/>
-    },
+   
     {
         name: "Bio",
         path: "bio",
@@ -19,8 +15,8 @@ DASHBOARDLINKS: [
         Icon: <HomeIcon width={20} height={20}/>
     },
     {
-        name: "Experience",
-        path: "experience",
+        name: "Experiences",
+        path: "experiences",
         Icon: <CalendarIcon width={20} height={20}/>
     },
     {
@@ -33,16 +29,7 @@ DASHBOARDLINKS: [
         path: "achievements",
         Icon: <Medal width={20} height={20}/>
     },
-    {
-        name: "Contact",
-        path: "contact",
-        Icon: <PhoneIcon width={20} height={20}/>
-    },
-    {
-        name: "Socials",
-        path: "socials",
-        Icon: <GlobeAmericasIcon width={20} height={20}/>
-    },
+ 
     {
         name: "Log Out",
         path: "/",

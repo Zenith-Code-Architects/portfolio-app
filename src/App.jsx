@@ -9,11 +9,13 @@ import DashboardLayout from './pages/Dashboard/layouts'
 import Overview from './pages/Dashboard/pages/Overview'
 import Skills from './pages/Dashboard/pages/Skills'
 import Projects from './pages/Dashboard/pages/Projects'
-import Achievements from './pages/Dashboard/pages/Achievements'
-import Bio from './pages/Dashboard/pages/Bio'
-import Experience from './pages/Dashboard/pages/Experience'
-import Contact from './pages/Dashboard/pages/Contact'
+import Bio from './pages/Dashboard/pages/Bio/Bio'
+import Contact from './pages/Dashboard/pages/Contact/Contact'
 import Socials from './pages/Dashboard/pages/Socials'
+import Experiences from './pages/Dashboard/pages/Experiences/Experiences'
+import AddExperience from './pages/Dashboard/pages/Experiences/addExperience'
+import Achievements from './pages/Dashboard/pages/achievements/Achievements'
+import AddAchievements from './pages/Dashboard/pages/achievements/addAchievements'
 
 function App() {
   const router = createBrowserRouter([
@@ -43,12 +45,20 @@ function App() {
         element:<Projects/>
        },
        {
-        path: "experience",
-        element:<Experience/>
+        path: "experiences",
+        element:<Experiences/>
+       },
+       {
+        path: "experiences/add-experience",
+        element: <AddExperience/>
        },
        {
         path: "achievements",
-        element:<Achievements/>
+        element: <Achievements/>
+       },
+       {
+        path: "achievements/add-achievement",
+        element: <AddAchievements/>
        },
        {
         path: "contact",

@@ -1,25 +1,27 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import D from "../constants"
-import { useState } from "react"
 
 
 const Sidebar = () => {
+const {pathname}= useLocation()
+const paths = pathname.split("/")
+const currentPath = paths[2]
 
     return (
         <>
         <div className="flex flex-row gap-x-4">
-            {/* <div className="bg-white text-primary flex flex-col">
-            <span className="text-3xl" >ZCA </span> portfolio
-            </div>  */}
-            <div className=" w-screen bg-primary/70 text-white">
-                <div className="py-3 flex flex-row gap-x-7 justify-center">
+            <div className="  ">
+                <div className="py-3 flex flex-col gap-y-7 justify-center w-[200px] h-screen">
                 {D.DASHBOARDLINKS.map(
                     (item, index) => {
-                        return <Link key={index} to={item.path}>
-                            <div id="dashboard-links" className="flex gap-x-2 content-center text-sm shadow-sm rounded-lg p-4 border-b-[3px]  border-r-[3px] border-gray-900 hover:bg-white hover:text-primary hover:shadow-lg transition duration-300 ease-in-out}"> 
-                            {item.Icon}{item.name}
-                            </div>  
-                            </Link>
+                        return (
+                        <Link key={index} to={item.path} 
+                        className={`flex gap-x-2 w-40 px-5 py-3 rounded-2xl shadow border hover:border-[1.5px] hover:bg-primary hover:text-white hover:shadow-lg ${ currentPath == item.path && "bg-primary text-white" }` }>
+                            <span > 
+                            {item.Icon}
+                            </span>  
+                            <span>{item.name}</span>
+                            </Link>)
                     }
                 )
 

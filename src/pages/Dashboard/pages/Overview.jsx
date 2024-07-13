@@ -1,8 +1,11 @@
 import React from 'react'
+import PagesLayout from '../layouts/PagesLayout'
 
 const Overview = () => {
   return (
-    <div>Overview</div>
+    <div>
+      <PagesLayout/>
+    </div>
   )
 }
 

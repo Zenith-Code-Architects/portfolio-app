@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserBar = () => {
     return (
-        <div>
+        <div className=''>
             UserBar
         </div>
     )

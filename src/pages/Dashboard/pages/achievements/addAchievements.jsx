@@ -1,13 +1,9 @@
 import React from 'react'
-import PagesLayout from '../layouts/PagesLayout'
 
-const Achievements = () => {
-    return (
-        <div>
-            <PagesLayout headerText='Achievements'
-                buttonText='Add New'
-                children='' />
-            <div>
+const AddAchievements = () => {
+  return (
+    <div>
+      <div>
                 <form action="">
 
                     <div className='flex flex-col pl-5'>
@@ -63,10 +59,8 @@ const Achievements = () => {
 
                 </form>
             </div>
-            <span>Achievements list here</span>
-
-        </div>
-    )
+    </div>
+  )
 }
 
-export default Achievements
+export default AddAchievements
