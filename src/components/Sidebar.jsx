@@ -9,14 +9,23 @@ const currentPath = paths[2]
 
     return (
         <>
-        <div className="flex flex-row gap-x-4">
-            <div className="  ">
-                <div className="py-3 flex flex-col gap-y-7 justify-center w-[200px] h-screen">
+        <div className="flex flex-row gap-x-4 h-screen ">
+            <div className=" flex flex-col justify-around ">
+                <div className="">
+                <ul className='no-underline flex justify-center gap-'>
+                    <div className=''>
+                        <li className='text-sm text-primary' >Primary</li>
+                        <h1 className='no-underline font-bold text-primary'>Dashboard</h1>
+                    </div>
+                    <li className='border-2 p-3 rounded-full'>MB</li>
+                </ul>
+                </div>
+                <div className=" flex flex-col justify-center items-center gap-y-3 w-[240px]">
                 {D.DASHBOARDLINKS.map(
                     (item, index) => {
                         return (
                         <Link key={index} to={item.path} 
-                        className={`flex gap-x-2 w-40 px-5 py-3 rounded-2xl shadow border hover:border-[1.5px] hover:bg-primary hover:text-white hover:shadow-lg ${ currentPath == item.path && "bg-primary text-white" }` }>
+                        className={`flex gap-x-2 w-40 px-5 p-y-3 rounded-2xl shadow border hover:border-[1.5px] hover:bg-primary hover:text-white hover:shadow-lg ${ currentPath == item.path && "bg-primary text-white" }` }>
                             <span > 
                             {item.Icon}
                             </span>  
@@ -35,7 +44,13 @@ const currentPath = paths[2]
 
 export default Sidebar
 
-// <>
+// <> className={`flex gap-x-2 w-40 px-5 py-3 rounded-2xl shadow border hover:border-[1.5px] hover:bg-primary hover:text-white hover:shadow-lg ${ currentPath == item.path && "bg-primary text-white" }` }>
+{/* <span > 
+{item.Icon}
+</span>  
+<span>{item.name}</span>
+</Link>)
+} */}
         //     <div className='h-screen w-[200px] bg-primary text-white'>
         //         <div className=''>
         //             Logo here

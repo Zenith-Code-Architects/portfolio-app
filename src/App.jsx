@@ -5,17 +5,17 @@ import LandingPage from './pages/LandingPage'
 import PreviewPage from './pages/PreviewPage'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
-import DashboardLayout from './pages/Dashboard/layouts'
-import Overview from './pages/Dashboard/pages/Overview'
-import Skills from './pages/Dashboard/pages/Skills'
-import Projects from './pages/Dashboard/pages/Projects'
-import Bio from './pages/Dashboard/pages/Bio/Bio'
-import Contact from './pages/Dashboard/pages/Contact/Contact'
-import Socials from './pages/Dashboard/pages/Socials'
-import Experiences from './pages/Dashboard/pages/Experiences/Experiences'
-import AddExperience from './pages/Dashboard/pages/Experiences/addExperience'
-import Achievements from './pages/Dashboard/pages/achievements/Achievements'
-import AddAchievements from './pages/Dashboard/pages/achievements/addAchievements'
+import Overview from './pages/dashboard/pages/Overview'
+import Skills from './pages/dashboard/pages/Skills'
+import Socials from './pages/dashboard/pages/Socials'
+import Contact from './pages/dashboard/pages/Contact'
+import DashboardLayout from './pages/dashboard/layouts/index'
+import Bio from './pages/dashboard/pages/Bio'
+import Experiences from './pages/dashboard/pages/Experiences'
+import Achievements from './pages/dashboard/pages/Achievements'
+import Projects from './pages/dashboard/pages/Projects'
+import AddExperience from './pages/dashboard/pages/Add-new/AddExperience'
+import AddAchievement from './pages/dashboard/pages/Add-new/AddAchievement'
 
 function App() {
   const router = createBrowserRouter([
@@ -26,7 +26,7 @@ function App() {
     { path: "signup", element: <SignUp /> },
 
     {
-      path: "dashboard", element: <DashboardLayout />,
+      path: "dashboard", element: <DashboardLayout/>,
       children: [
         {
           index: true,
@@ -42,11 +42,11 @@ function App() {
        },
        {
         path: "projects",
-        element:<Projects/>
+        element: <Projects/>
        },
        {
         path: "experiences",
-        element:<Experiences/>
+        element: <Experiences/>
        },
        {
         path: "experiences/add-experience",
@@ -58,7 +58,7 @@ function App() {
        },
        {
         path: "achievements/add-achievement",
-        element: <AddAchievements/>
+        element: <AddAchievement/>
        },
        {
         path: "contact",

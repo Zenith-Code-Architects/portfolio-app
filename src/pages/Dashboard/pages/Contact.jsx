@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from '../../../components/NavBar'
 import PagesLayout from '../layouts/PagesLayout'
 
-const Projects = () => {
+const Contact = () => {
   return (
     <div>
       <NavBar/>
@@ -11,4 +11,4 @@ const Projects = () => {
   )
 }
 
-export default Projects
+export default Contact

@@ -1,9 +1,11 @@
-import React from 'react'
-import PagesLayout from '../layouts/PagesLayout'
+import NavBar from "../../../components/NavBar"
+import PagesLayout from "../layouts/PagesLayout"
+
 
 const Overview = () => {
   return (
     <div>
+     <NavBar/>
       <PagesLayout/>
     </div>
   )

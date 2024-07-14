@@ -1,15 +1,15 @@
 import React from 'react'
 import PagesLayout from '../layouts/PagesLayout'
 import NavBar from '../../../components/NavBar'
+import Sidebar from '../../../components/Sidebar'
 
-const Skills = () => {
+const Bio = () => {
   return (
     <div>
       <NavBar/>
-        <PagesLayout headerText='Skills' buttonText='Add New Skills'/>
-        <span>All skills here</span>
+      <PagesLayout/>
     </div>
   )
 }
 
-export default Skills
+export default Bio
