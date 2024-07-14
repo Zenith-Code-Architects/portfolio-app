@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom"
 import D from "../constants"
+import "../App.css"
 
 
 const Sidebar = () => {
@@ -22,10 +23,10 @@ const currentPath = paths[2]
                         
                         ${ currentPath == item.path && "bg-primary text-white rounded-l-[20px]" }` }>
                             
-                            <span className="relative"> 
+                            <span className=""> 
                             {item.Icon}
                             </span>  
-                            <span className="relative">{item.name}</span>
+                            <span className="">{item.name}</span>
                             </Link>)
                     }
                 )
