@@ -9,27 +9,23 @@ const currentPath = paths[2]
 
     return (
         <>
-        <div className="flex flex-row gap-x-4 h-screen ">
-            <div className=" flex flex-col justify-around ">
+        <div className="flex flex-row justify-center gap-x-4 h-screen  border-r ml-3 text-primary">
+            <div className=" flex flex-col justify-center content-center ">
                 <div className="">
-                <ul className='no-underline flex justify-center gap-'>
-                    <div className=''>
-                        <li className='text-sm text-primary' >Primary</li>
-                        <h1 className='no-underline font-bold text-primary'>Dashboard</h1>
-                    </div>
-                    <li className='border-2 p-3 rounded-full'>MB</li>
-                </ul>
                 </div>
-                <div className=" flex flex-col justify-center items-center gap-y-3 w-[240px]">
+                <div className=" flex flex-col justify-center items-center gap-y-3  w-[240px]">
                 {D.DASHBOARDLINKS.map(
                     (item, index) => {
                         return (
                         <Link key={index} to={item.path} 
-                        className={`flex gap-x-2 w-40 px-5 p-y-3 rounded-2xl shadow border hover:border-[1.5px] hover:bg-primary hover:text-white hover:shadow-lg ${ currentPath == item.path && "bg-primary text-white" }` }>
-                            <span > 
+                        className={`flex text-center gap-x-2 w-full pl-5 py-2 hover:shadow-lg 
+                        
+                        ${ currentPath == item.path && "bg-primary text-white rounded-l-[20px]" }` }>
+                            
+                            <span className="relative"> 
                             {item.Icon}
                             </span>  
-                            <span>{item.name}</span>
+                            <span className="relative">{item.name}</span>
                             </Link>)
                     }
                 )

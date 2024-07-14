@@ -13,6 +13,11 @@ const D = {
             Icon: <UserIcon width={20} height={20} />
         },
         {
+            name: "Education",
+            path: "education",
+            Icon: <UserIcon width={20} height={20} />
+        },
+        {
             name: "Skills",
             path: "skills",
             Icon: <HomeIcon width={20} height={20} />

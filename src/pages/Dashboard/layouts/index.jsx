@@ -6,7 +6,7 @@ import NavBar from '../../../components/NavBar'
 const DashboardLayout = () => {
     return (
         <>
-            <div className='flex overflow-x-hidden'>
+            <div className='flex'>
                 <div className=''>
                     <Sidebar />
                 </div>

@@ -16,6 +16,8 @@ import Achievements from './pages/dashboard/pages/Achievements'
 import Projects from './pages/dashboard/pages/Projects'
 import AddExperience from './pages/dashboard/pages/Add-new/AddExperience'
 import AddAchievement from './pages/dashboard/pages/Add-new/AddAchievement'
+import Education from './pages/dashboard/pages/Education'
+import AddEducation from './pages/dashboard/pages/Add-new/AddEducation'
 
 function App() {
   const router = createBrowserRouter([
@@ -35,6 +37,14 @@ function App() {
         {
           path: "bio",
           element: <Bio/>
+       },
+        {
+          path: "education",
+          element: <Education/>
+       },
+        {
+          path: "education/add-education",
+          element: <AddEducation/>
        },
         {
           path: "skills",
