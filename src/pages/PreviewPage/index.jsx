@@ -2,7 +2,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skillset'
+import Skillset from './components/Skillset'
 import Resume from './components/Resume'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
@@ -14,7 +14,7 @@ const PreviewPage = () => {
     < Navbar/>  
     < Hero/>  
     < About/>  
-    < Skills/>
+    < Skillset/>
     < Resume/>
     < Portfolio/>
     < Contact/>  
