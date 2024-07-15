@@ -2,13 +2,26 @@ import React from 'react'
 import PhoneImage from "./../../assets/images/phone-image.jpg"
 import { Link } from 'react-router-dom'
 import { useForm } from "react-hook-form";
+import { apiLogin } from '../../services/auth';
 
 
 
 const Login = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async(data) => {
     console.log(data);
+    try {
+      const res = await apiLogin({
+        email: data.email,
+        password: data.password,
+      })
+      console.log("Response:", res)
+      console.log("second: I got called")
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
   };
 
   return (
