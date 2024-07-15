@@ -3,16 +3,18 @@ import PhoneImage from "./../../assets/images/phone-image.jpg"
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { apiLogin } from '../../services/auth';
+import { EyeIcon, UserIcon } from '@heroicons/react/20/solid';
+import "./login.css"
 
 
 
 const Login = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   console.log(isSubmitting);
- const navigate = useNavigate()
-  
+  const navigate = useNavigate()
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     console.log(data);
     setIsSubmitting(true);
 
@@ -27,99 +29,94 @@ const Login = () => {
 
       //redirect to dashboard
       navigate("/dashboard")
-      
+
     } catch (error) {
       console.log(error);
     }
-    finally{
+    finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className='flex h-screen '>
-      <div className="mx-auto w-fit flex flex-col items-start gap-y-4 p-20">
+    <div className="bg-green-700 rounded-xl  text-white h-[450px] w-[420px] relative ">
 
-        <div className="flex flex-col">
-          <p className="text-center font-bold text-4xl mb-2">Welcome Back !</p>
-          <h6 className='text-center'>Log in to your portfolio</h6>
+      <div className="w-full p-10">
+        <p className="font-bold text-4xl mb-2 text-center">Welcome Back !</p>
+        <h6 className='text-center'>Log in to your portfolio</h6>
 
-          <form className='flex flex-col gap-y-4 mt-4' onSubmit={handleSubmit(onSubmit)}>
+        <form className='flex flex-col mt-4' onSubmit={handleSubmit(onSubmit)}>
 
-            <div className='w-full'>
-              <label htmlFor='email' className=' block text-sm font-bold'>Your Email or Username</label>
-              <input type='text'
-                id="email"
-                name="email" className=" w-[500px] mt-1 p-2 border border-gray-300 rounded w- max-w-full left-0 top-0"
-                {
-                ...register("email", { required: "Email or username is required" })
+          <div className=' relative w-full h-12 input-box'>
+            <input type='text'
+              id="email"
+              placeholder='Username or Email'
+              name="email"
+              className=" w-full h-full text-base text-[#fff] bg-transparent border-[rgba(255,255,255,0.1)] outline-none border-2 rounded-[40px] border-solid "
+              {
+              ...register("email", { required: "Email or username is required" })
 
-                }
+              }
 
-              />
-              {errors.email && (
-                <p className='text-red-500'>{errors.email.message}</p>
-              )}
-            </div>
-
-
-
-            <div className='w-full'>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-              <input type="password"
-                id="password"
-                name="password" className=" w-[500px] mt-1 p-2 border border-gray-300 rounded left-0 top-0"
-                {
-                ...register("password", { required: "Password is required" })
-
-                }
-              />
-              {errors.password && (
-                <p className='text-red-500'>{errors.password.message}</p>
-              )}
-            </div>
+            />
+            <span><UserIcon width={20} height={20} /></span>
+            {errors.email && (
+              <p className='text-red-500'>{errors.email.message}</p>
+            )}
+          </div>
 
 
 
+          <div className=' relative w-full h-12 input-box'>
+            <input type="password"
+              id="password"
+              name="password"
+              placeholder='Password'
+              className=" w-full h-full bg-transparent border-[rgba(255,255,255,0.1)] outline-none border-2 rounded-[40px] border-solid"
+              {
+              ...register("password", { required: "Password is required" })
 
-            <div className="flex items-center justify-between">
-              <div className='flex items-center'>
-                <input type="checkbox"
-                  id="remember-me"
-                  name="remember-me" className="mr-2" />
-                <label htmlFor="remember-me" className="text-sm font-medium text-gray-700">Remember me</label>
-              </div>
-
-            </div>
-            <div className="">
-              <Link to="#" className="text-sm text-gray-600 hover:underline ">Forgot password?</Link>
-            </div>
+              }
+            />
+            <span className='text-[#fff] absolute right-5 top-2/4 '><EyeIcon width={20} height={20} /></span>
+            {errors.password && (
+              <p className='text-red-500'>{errors.password.message}</p>
+            )}
+          </div>
 
 
-            <button type="submit" className="mt-4 py-3 px-8 bg-blue-600 text-white rounded-md ">
-              {isSubmitting ? "Loading...": "Login"}
+
+
+          <div className="">
+
+            <input type="checkbox"
+              id="remember-me"
+              name="remember-me" className="mr-2" />
+            <label htmlFor="remember-me" className="text-sm font-medium text-gray-700">Remember me</label>
+            <Link to="#" className="text-sm text-gray-600 hover:underline ">Forgot password?</Link>
+            <button type="submit" className=" py-3 px-8 bg-blue-600 text-white w-52 rounded-md ">
+              {isSubmitting ? "Loading..." : "Login"}
             </button>
-            <div className="mt-4 text-sm text-gray-600">
-              Don't have an account? <a href="#" className="text-blue-600 hover:underline">Register</a>
-            </div>
+            <p>Don't have an account? <a href="#" className="text-blue-600 hover:underline">Register</a></p>
+          </div>
 
 
-          </form>
-        </div>
+
+          <div className="mt-4 text-sm text-gray-600">
+
+          </div>
+
+
+        </form>
       </div>
-      <div className="w-1/2">
-        <img src={PhoneImage} alt="phone image"
-          className='bg-cover bg-center h-screen' />
-
-
-      </div>
-
-
-
-
-
-
     </div>
+
+
+
+
+
+
+
 
 
   )
