@@ -1,26 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PhoneImage from "./../../assets/images/phone-image.jpg"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { apiLogin } from '../../services/auth';
 
 
 
 const Login = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  console.log(isSubmitting);
+ const navigate = useNavigate()
+  
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = async(data) => {
     console.log(data);
+    setIsSubmitting(true);
+
+
     try {
       const res = await apiLogin({
         email: data.email,
         password: data.password,
       })
       console.log("Response:", res)
-      console.log("second: I got called")
+      console.log("second: I got called");
+
+      //redirect to dashboard
+      navigate("/dashboard")
       
     } catch (error) {
-      console.log(error)
-      
+      console.log(error);
+    }
+    finally{
+      setIsSubmitting(false);
     }
   };
 
@@ -84,7 +96,9 @@ const Login = () => {
             </div>
 
 
-            <button type="submit" className="mt-4 py-3 px-8 bg-blue-600 text-white rounded-md ">Log In</button>
+            <button type="submit" className="mt-4 py-3 px-8 bg-blue-600 text-white rounded-md ">
+              {isSubmitting ? "Loading...": "Login"}
+            </button>
             <div className="mt-4 text-sm text-gray-600">
               Don't have an account? <a href="#" className="text-blue-600 hover:underline">Register</a>
             </div>
