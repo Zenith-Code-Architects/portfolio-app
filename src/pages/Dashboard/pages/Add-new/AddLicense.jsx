@@ -8,7 +8,8 @@ const AddLicense = () => {
             <NavBar />
             <div>
 
-                <form action="">
+                <form action=""
+                 className='flex flex-col'>
 
                     <label htmlFor="">
                         Name of License Obtained

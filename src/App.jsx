@@ -22,6 +22,7 @@ import Licenses from './pages/dashboard/pages/Licenses'
 import AddLicense from './pages/dashboard/pages/Add-new/AddLicense'
 import AddBio from './pages/dashboard/pages/Add-new/AddBio'
 import AddSkill from './pages/dashboard/pages/Add-new/AddSkill'
+import AddProjects from './pages/dashboard/pages/Add-new/AddProjects'
 
 function App() {
   const router = createBrowserRouter([
@@ -65,6 +66,10 @@ function App() {
        {
         path: "projects",
         element: <Projects/>
+       },
+       {
+        path: "projects/add-project",
+        element: <AddProjects/>
        },
        {
         path: "experiences",

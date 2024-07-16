@@ -2,11 +2,20 @@ import React from 'react'
 import NavBar from '../../../../components/NavBar'
 
 const AddProjects = () => {
+    const handleClick = () => {
+        const userConfirmed = window.confirm("Do you want to submit?");
+        if (userConfirmed) {
+          alert("Submitted!");
+          // Perform your submit action here
+        }
+      };
+    
     return (
         <>
             <NavBar />
             <div>
-                <form action="">
+                <form action=""
+                className='flex flex-col'>
 
                     <label htmlFor="">
                     Project Name
@@ -61,6 +70,9 @@ const AddProjects = () => {
                     End Date
                     </label>
                     <input type="date" />
+
+                    <button 
+                    onClick={handleClick}>Submit</button>
                 </form>
             </div>
         </>
