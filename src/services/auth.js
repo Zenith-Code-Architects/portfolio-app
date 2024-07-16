@@ -8,6 +8,6 @@ export const apiLogin = async(payload) => {
     return apiClient.post("/auth/login", payload)
 }
 
-export const apiucheckUsernameExists = async(userName) => {
+export const apicheckUsernameExists = async(userName) => {
     return apUserClient.get(`/auth/${userName}`)
 }

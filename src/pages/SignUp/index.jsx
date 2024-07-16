@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SignUpImage from '../../assets/images/sign-up-bg.jpg'
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { data } from 'autoprefixer';
+import { apiSignUp } from '../../services/auth'
 
 
 const SignUp = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+try {
+  const res = await  apiSignUp ({
+    firstName: data.firstName,
+    lastName: data.otherNames,
+    userName: data.userName,
+    otherNames: data.otherNames,
+    password: data.password,
+    email: data.email,
+    confirmedPassword: data.password
+
+  })
+  console.log(res.data);
+} catch (error) {
+  console.log(error);
+  
+}
 
   };
 
@@ -30,19 +48,19 @@ const SignUp = () => {
 
                 <div className=''>
                   <div className='flex flex-row items-center gap-x-[310px]'>
-                  <label htmlFor="firstname" className="block font-medium  text-black">First Name</label>
+                  <label htmlFor="firstName" className="block font-medium  text-black">First Name</label>
                     <div>
                      
-                      {errors.firstname && (
-                        <p className="text-red-500 text-[12px] italic">{errors.firstname.message}</p>
+                      {errors.firstName && (
+                        <p className="text-red-500 text-[12px] italic">{errors.firstName.message}</p>
                       )}
                     </div>
                   </div>
                   <input
 
-                    type="text" name="firstname" id="firstname" className="  bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your firstname"
+                    type="text" name="firstName" id="firstName" className="  bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your firstName"
                     {
-                    ...register("firstname", {
+                    ...register("firstName", {
                       required: "firstname is required"
 
                     })}
@@ -52,19 +70,32 @@ const SignUp = () => {
                 </div>
 
                 <div>
-                  {errors.lastname && (
-                    <p className="text-red-500 text-[12px] italic">{errors.lastname.message}</p>
+                  {errors.lastName && (
+                    <p className="text-red-500 text-[12px] italic">{errors.lastName.message}</p>
                   )}
-                  <label htmlFor="lastname" className=" block  font-medium text-black ">Last Name</label>
+                  <label htmlFor="lastName" className=" block  font-medium text-black ">Last Name</label>
                   <input
 
-                    type="text" name="lastname" id="lastname" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your lastname"
+                    type="text" name="lastName" id="lastName" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your lastName"
                     {
-                    ...register("lastname", {
-                      required: "lastname is required"
+                    ...register("lastName", {
+                      required: "lastName is required"
 
                     })}
 
+                  />
+
+                </div>
+                <div>
+                  {errors.otherNames && (
+                    <p className="text-red-500 text-[12px] italic">{errors.otherNames.message}</p>
+                  )}
+                  <label htmlFor="otherNames" className=" block  font-medium text-black ">Other Names</label>
+                  <input
+
+                    type="text" name="otherNames" id="otherNames" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your other names"
+                    {
+                    ...register("otherNames")}
                   />
 
                 </div>
@@ -72,17 +103,18 @@ const SignUp = () => {
 
 
 
+
                 <div>
-                  {errors.username && (
-                    <p className="text-red-500 text-[12px] italic">{errors.username.message}</p>
+                  {errors.userName && (
+                    <p className="text-red-500 text-[12px] italic">{errors.userName.message}</p>
                   )}
-                  <label htmlFor="username" className="block  font-medium text-black">Username</label>
+                  <label htmlFor="userName" className="block  font-medium text-black">username</label>
                   <input
 
-                    type="text" name="username" id="username" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your custom username"
+                    type="text" name="userName" id="userName" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your custom userName"
                     // {
-                    // ...register("username", {
-                    //   required: "username is required"
+                    // ...register("userName", {
+                    //   required: "userName is required"
 
                     // })}
 

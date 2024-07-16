@@ -3,16 +3,18 @@ import PhoneImage from "./../../assets/images/phone-image.jpg"
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { apiLogin } from '../../services/auth';
+import { InfinitySpin } from 'react-loader-spinner';
+import { toast } from 'react-toastify';
 
 
 
 const Login = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   console.log(isSubmitting);
- const navigate = useNavigate()
-  
+  const navigate = useNavigate()
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     console.log(data);
     setIsSubmitting(true);
 
@@ -24,14 +26,19 @@ const Login = () => {
       })
       console.log("Response:", res)
       console.log("second: I got called");
+toast.success(res.data)
+setTimeout(()=> {
+    //redirect to dashboard
+    navigate("/dashboard")
+}, 5000)
 
-      //redirect to dashboard
-      navigate("/dashboard")
-      
+    
+
     } catch (error) {
       console.log(error);
+      toast.error(error)
     }
-    finally{
+    finally {
       setIsSubmitting(false);
     }
   };
@@ -97,7 +104,12 @@ const Login = () => {
 
 
             <button type="submit" className="mt-4 py-3 px-8 bg-blue-600 text-white rounded-md ">
-              {isSubmitting ? "Loading...": "Login"}
+              {isSubmitting ? <InfinitySpin
+                visible={true}  
+                width="200"
+                color="#4fa94d"
+                ariaLabel="infinity-spin-loading"
+              /> : "Login"}
             </button>
             <div className="mt-4 text-sm text-gray-600">
               Don't have an account? <a href="#" className="text-blue-600 hover:underline">Register</a>
