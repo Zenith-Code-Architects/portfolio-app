@@ -18,6 +18,10 @@ import AddExperience from './pages/dashboard/pages/Add-new/AddExperience'
 import AddAchievement from './pages/dashboard/pages/Add-new/AddAchievement'
 import Education from './pages/dashboard/pages/Education'
 import AddEducation from './pages/dashboard/pages/Add-new/AddEducation'
+import Licenses from './pages/dashboard/pages/Licenses'
+import AddLicense from './pages/dashboard/pages/Add-new/AddLicense'
+import AddBio from './pages/dashboard/pages/Add-new/AddBio'
+import AddSkill from './pages/dashboard/pages/Add-new/AddSkill'
 
 function App() {
   const router = createBrowserRouter([
@@ -39,6 +43,10 @@ function App() {
           element: <Bio/>
        },
         {
+          path: "bio/add-bio",
+          element: <AddBio/>
+       },
+        {
           path: "education",
           element: <Education/>
        },
@@ -49,6 +57,10 @@ function App() {
         {
           path: "skills",
           element: <Skills/>
+       },
+        {
+          path: "skills/add-skill",
+          element: <AddSkill/>
        },
        {
         path: "projects",
@@ -69,6 +81,14 @@ function App() {
        {
         path: "achievements/add-achievement",
         element: <AddAchievement/>
+       },
+       {
+        path: "licenses",
+        element: <Licenses/>
+       },
+       {
+        path: "licenses/add-license",
+        element: <AddLicense/>
        },
        {
         path: "contact",

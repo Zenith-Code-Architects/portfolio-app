@@ -1,79 +1,71 @@
 import React from 'react'
 import NavBar from '../../../../components/NavBar'
 
-const AddExperience = () => {
+const AddProjects = () => {
     return (
         <>
             <NavBar />
             <div>
-                <form action="" className='flex flex-col'>
-
+                <form action="">
 
                     <label htmlFor="">
-                        Name of Company
+                    Project Name
                     </label>
                     <input type="text" />
 
 
 
                     <label htmlFor="">
-                        Role
+                    Program
                     </label>
                     <input type="text" />
 
 
 
                     <label htmlFor="">
-                        Skills
+                    Contributors
                     </label>
                     <input type="text" />
 
 
 
                     <label htmlFor="">
-                        Job Description
-                    </label>
-                    <textarea name="description" id="description">
-                    </textarea>
-
-
-
-                    <label htmlFor="">
-                        Location
+                    Skills
                     </label>
                     <input type="text" />
 
 
 
                     <label htmlFor="">
-                        Location Type
+                    Link
                     </label>
-                    <input type="radio" />
+                    <input type="text" />
 
 
 
                     <label htmlFor="">
-                        Start Date
+                    Name of Institution
+                    </label>
+                    <input type="text" />
+
+
+
+                    <label htmlFor="">
+                    Start Date
                     </label>
                     <input type="date" />
 
 
 
                     <label htmlFor="">
-                        End Date
+                    End Date
                     </label>
                     <input type="date" />
-
-
-                    <label htmlFor="">
-                        Employment type
-                    </label>
-
-
                 </form>
             </div>
         </>
+
     )
 }
 
-export default AddExperience
+export default AddProjects

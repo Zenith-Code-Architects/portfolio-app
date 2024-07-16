@@ -19,7 +19,7 @@ export default {
           '800': '#5e001a',
           '900': '#400010',
         },
-        primary: "#2C2385"
+        primary: "#0db75f"
       },
     },
   },

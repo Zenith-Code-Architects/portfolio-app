@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom"
 import D from "../constants"
 import "../App.css"
+import ZcaLogo from "../assets/images/dashboard-logo.jpg"
 
 
 const Sidebar = () => {
@@ -10,30 +11,33 @@ const currentPath = paths[2]
 
     return (
         <>
-        <div className="flex flex-row justify-center items-center gap-x-4 ml-3 text-primary">
-            <div className=" ">
-                <div className=" flex flex-col justify-center items-center relative h-screen overflow-x-hidden w-16 hover:w-52" style={{ boxShadow: '10px 0 0 #2C2385' }}>
+             <div className=" ml-3 text-black flex flex-col relative h-screen overflow-y-hidden overflow-x-hidden w-16 hover:w-52 transition-width" style={{ boxShadow: '10px 0 #0db75f' }}>
+                <div className="flex justify-center items-center py-4 border-b-2">
+                    <img src={ZcaLogo} alt="zca-logo" 
+                    className="w-1/2" />
+                </div>
+                <div className="flex flex-col mt-4">
                 {D.DASHBOARDLINKS.map(
                     (item, index) => {
                         return (
-                        <Link key={index} to={item.path} 
+                        <Link key={index}
+                         to={item.path} 
                         id="nav"
-                        className={`flex items-center gap-x-2 w-full hover:shadow-lg
+                        className={` flex items-center hover:shadow-lg 
                         
                         ${ currentPath == item.path && "bg-primary text-white rounded-l-[20px]" }` }>
                             
-                            <span className="relative block text-center pl-4 min-w-14 leading-[30px] z-[1]"> 
+                            <span className="relative text-center pl-4 min-w-14"> 
                             {item.Icon}
                             </span>  
-                            <span className="relative pl-2 block w-full whitespace-nowrap leading-[60px]">{item.name}</span>
+                            <span className="relative pl-2 w-full whitespace-nowrap leading-[40px]">{item.name}</span>
                             </Link>)
                     }
                 )
 
                 }
+                </div>
                 </div> 
-            </div>
-        </div>
         </>
     )
 }

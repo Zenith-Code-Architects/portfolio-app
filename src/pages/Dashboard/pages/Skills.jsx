@@ -1,12 +1,15 @@
 import React from 'react'
 import PagesLayout from '../layouts/PagesLayout'
 import NavBar from '../../../components/NavBar'
+import { useNavigate } from 'react-router-dom'
 
 const Skills = () => {
+const navigate = useNavigate()
+
   return (
-    <div>
+    <div className=''>
       <NavBar/>
-        <PagesLayout headerText='Skills' buttonText='Add New Skills'/>
+        <PagesLayout headerText='Skills' buttonText='Add New Skills' onClick={()=> navigate ("/dashboard/skills/add-skill")}/>
         <span>All skills here</span>
     </div>
   )

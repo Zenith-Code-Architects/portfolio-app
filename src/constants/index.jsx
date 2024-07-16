@@ -5,7 +5,7 @@ const D = {
     DASHBOARDLINKS: [
         {
             name: "Overview",
-            path: "bio",
+            path: "",
             Icon: <UserIcon width={20} height={20} />
         },
         {
@@ -17,6 +17,11 @@ const D = {
             name: "Education",
             path: "education",
             Icon: <UserIcon width={20} height={20} />
+        },
+        {
+            name: "Licenses",
+            path: "licenses",
+            Icon: <LogOutIcon width={20} height={20} />
         },
         {
             name: "Skills",
@@ -38,12 +43,13 @@ const D = {
             path: "achievements",
             Icon: <Medal width={20} height={20} />
         },
-
+        
         {
             name: "Log Out",
             path: "/",
             Icon: <LogOutIcon width={20} height={20} />
         },
+       
 
     ],
 };
