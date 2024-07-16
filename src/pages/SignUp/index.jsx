@@ -1,34 +1,82 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SignUpImage from '../../assets/images/sign-up-bg.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { data } from 'autoprefixer';
-import { apiSignUp } from '../../services/auth'
+import { apiCheckUsernameExists, apiSignUp } from '../../services/auth'
+import { toast } from 'react-toastify';
 
 
 const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [usernameAvailable, setUsernameAvailable] = useState(false);
+  const [usernameNotAvailable, setUsernameNotAvailable] = useState(false)
+const navigate = useNavigate();
+
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+  const checkUserName = async (userName) => {
+    try {
+      const res = await apiCheckUsernameExists(userName);
+      console.log(res.data);
+      const user = res.data
+      if (user) {
+        setUsernameNotAvailable(true)
+      } else {
+        setUsernameAvailable(true)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const userNameWatch = watch("userName");
+  console.log(userNameWatch);
+  if (userNameWatch) {
+    checkUserName(userNameWatch)
+  }
+
+  useEffect(() => {
+    if (userNameWatch)
+    {
+      checkUserName(userNameWatch)
+    }
+  }, [userNameWatch]);
+
+  
 
   const onSubmit = async (data) => {
     console.log(data);
-try {
-  const res = await  apiSignUp ({
-    firstName: data.firstName,
-    lastName: data.otherNames,
-    userName: data.userName,
-    otherNames: data.otherNames,
-    password: data.password,
-    email: data.email,
-    confirmedPassword: data.password
+    let payload = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      userName: data.userName,
+      password: data.password,
+      email: data.email,
+      confirmedPassword: data.password,
 
-  })
-  console.log(res.data);
-} catch (error) {
-  console.log(error);
-  
-}
+    }
+    if (data.otherNames) {
+      payload = { ...payload, otherNames: data.otherNames };
+    }
+    try {
+      const res = await apiSignUp(payload)
+      console.log(res.data);
+      toast.success(res.data)
+      toast.success(res.data)
+      setTimeout(() => {
+        navigate("/login");
+      }, 5000)
+    }
 
+    catch (error) {
+      console.log(error);
+      toast.error(error)
+      toast.error(error.message)
+
+    } finally {
+      setIsSubmitting(false)
+    }
   };
 
   return (
@@ -48,9 +96,9 @@ try {
 
                 <div className=''>
                   <div className='flex flex-row items-center gap-x-[310px]'>
-                  <label htmlFor="firstName" className="block font-medium  text-black">First Name</label>
+                    <label htmlFor="firstName" className="block font-medium  text-black">First Name</label>
                     <div>
-                     
+
                       {errors.firstName && (
                         <p className="text-red-500 text-[12px] italic">{errors.firstName.message}</p>
                       )}
@@ -108,15 +156,27 @@ try {
                   {errors.userName && (
                     <p className="text-red-500 text-[12px] italic">{errors.userName.message}</p>
                   )}
+
+                  {
+                    usernameAvailable && <p className="text-green-500"> Username is available </p>
+                  }
+                  
+                  {
+                    usernameNotAvailable && <p className="text-red-500">Username is already taken</p>
+
+                  }
                   <label htmlFor="userName" className="block  font-medium text-black">username</label>
                   <input
 
                     type="text" name="userName" id="userName" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your custom userName"
-                    // {
-                    // ...register("userName", {
-                    //   required: "userName is required"
+                    {
+                    ...register("userName", {
+                      required: "userName is required"
 
-                    // })}
+
+                    }
+                    )}
+
 
                   />
                 </div>
@@ -166,7 +226,9 @@ try {
                     <label htmlFor="terms" className="font-light text-black">I accept the <Link className="font-medium text-primary-600 hover:underline " to="#">Terms and Conditions</Link> </label>
                   </div>
                 </div>
-                <button type="submit" className="text-black w-[350px] bg-[#005C66] hover:bg-[#E1B987] focus:ring-4 focus:outline-6 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800 shadow">Create an account</button>
+                <button type="submit" className="text-black w-[350px] bg-[#005C66] hover:bg-[#E1B987] focus:ring-4 focus:outline-6 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800 shadow">Create an account
+                  {isSubmitting ? "Loading..." : "Signup"}
+                </button>
                 <p className="text-sm font-light text-black">
                   Already have an account? <Link to="#" className="font-medium text-primary-600 hover:underline ">Login here</Link>
                 </p>
