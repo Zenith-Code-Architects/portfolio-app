@@ -5,7 +5,8 @@ const D = {
     DASHBOARDLINKS: [
         {
             name: "Overview",
-            path: "",
+            path: "bio",
+            Icon: <UserIcon width={20} height={20} />
         },
         {
             name: "Bio",

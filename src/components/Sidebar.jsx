@@ -10,23 +10,22 @@ const currentPath = paths[2]
 
     return (
         <>
-        <div className="flex flex-row justify-center gap-x-4 h-screen  border-r ml-3 text-primary">
-            <div className=" flex flex-col justify-center content-center ">
-                <div className="">
-                </div>
-                <div className=" flex flex-col justify-center items-center gap-y-3  w-[240px]">
+        <div className="flex flex-row justify-center items-center gap-x-4 ml-3 text-primary">
+            <div className=" ">
+                <div className=" flex flex-col justify-center items-center relative h-screen overflow-x-hidden w-16 hover:w-52" style={{ boxShadow: '10px 0 0 #2C2385' }}>
                 {D.DASHBOARDLINKS.map(
                     (item, index) => {
                         return (
                         <Link key={index} to={item.path} 
-                        className={`flex text-center gap-x-2 w-full pl-5 py-2 hover:shadow-lg 
+                        id="nav"
+                        className={`flex items-center gap-x-2 w-full hover:shadow-lg
                         
                         ${ currentPath == item.path && "bg-primary text-white rounded-l-[20px]" }` }>
                             
-                            <span className=""> 
+                            <span className="relative block text-center pl-4 min-w-14 leading-[30px] z-[1]"> 
                             {item.Icon}
                             </span>  
-                            <span className="">{item.name}</span>
+                            <span className="relative pl-2 block w-full whitespace-nowrap leading-[60px]">{item.name}</span>
                             </Link>)
                     }
                 )

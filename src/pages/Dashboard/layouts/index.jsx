@@ -10,7 +10,7 @@ const DashboardLayout = () => {
                 <div className=''>
                     <Sidebar />
                 </div>
-                <div className='w-full'>
+                <div className='w-full ml-5'>
                     <Outlet />
                 </div>
 
