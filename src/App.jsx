@@ -5,7 +5,7 @@ import LandingPage from './pages/LandingPage'
 import PreviewPage from './pages/PreviewPage'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
-import Dashboard from './pages/dashboard'
+import Dashboard from './pages/Dashboard'
 
 function App() {
   const router = createBrowserRouter([
