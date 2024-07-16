@@ -11,6 +11,9 @@ const navigate = useNavigate()
     <div>
       <NavBar/>
       <PagesLayout buttonText="Add New" onClick ={()=> navigate ("/dashboard/bio/add-bio")} />
+        <div className='w-64 h-64 bg-red-400 rounded-full'>
+
+        </div>
     </div>
   )
 }
