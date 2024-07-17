@@ -1,3 +1,18 @@
+
+.transition-width {
+    transition: width 0.5s;
+  }
+
+
+#nav span::after{
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
 .bg-image {
     background-image: url(./assets/images/hero-bg.jpg);
     height: 100vh; 
@@ -25,4 +40,3 @@
     z-index: 1;
     background-clip: border-box;
   }
-  
