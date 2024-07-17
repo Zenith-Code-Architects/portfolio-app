@@ -6,6 +6,7 @@ export default {
   ],
   theme: {
     extend: {
+
       colors:{
         maroon: {
           '50': '#f9f2f2',
@@ -20,6 +21,7 @@ export default {
           '900': '#400010',
         },
         primary: "#0db75f"
+     
       },
     },
   },
