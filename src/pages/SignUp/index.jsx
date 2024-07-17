@@ -5,45 +5,58 @@ import { useForm } from "react-hook-form";
 import { data } from 'autoprefixer';
 import { apiCheckUsernameExists, apiSignUp } from '../../services/auth'
 import { toast } from 'react-toastify';
+import { Loader } from 'lucide-react';
+import { debounce } from 'lodash';
+
+
 
 
 const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [usernameAvailable, setUsernameAvailable] = useState(false);
   const [usernameNotAvailable, setUsernameNotAvailable] = useState(false)
-const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [isUsernameLoading, setIsUsernameLoading ] = useState(false);
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   const checkUserName = async (userName) => {
+   
+    setIsUsernameLoading(true)
+    
     try {
       const res = await apiCheckUsernameExists(userName);
       console.log(res.data);
-      const user = res.data
+      const user = res.data.user;
       if (user) {
-        setUsernameNotAvailable(true)
+        setUsernameNotAvailable(true);
+        setUsernameAvailable (false);
       } else {
-        setUsernameAvailable(true)
+        setUsernameAvailable(true);
+        setUsernameNotAvailable(false);
       }
     } catch (error) {
       console.log(error);
+      toast.error("An error occured");
+    }finally{
+      setIsUsernameLoading(false)
     }
   };
 
   const userNameWatch = watch("userName");
-  console.log(userNameWatch);
-  if (userNameWatch) {
-    checkUserName(userNameWatch)
-  }
-
+  
+  
   useEffect(() => {
+   const debouncedSearch =  debounce(async () => {
     if (userNameWatch)
-    {
       checkUserName(userNameWatch)
-    }
+   }, 1000)
+
+   debouncedSearch()
+
   }, [userNameWatch]);
 
-  
+
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -72,7 +85,7 @@ const navigate = useNavigate();
     catch (error) {
       console.log(error);
       toast.error(error)
-      toast.error(error.message)
+      toast.error("An error occured");
 
     } finally {
       setIsSubmitting(false)
@@ -98,7 +111,6 @@ const navigate = useNavigate();
                   <div className='flex flex-row items-center gap-x-[310px]'>
                     <label htmlFor="firstName" className="block font-medium  text-black">First Name</label>
                     <div>
-
                       {errors.firstName && (
                         <p className="text-red-500 text-[12px] italic">{errors.firstName.message}</p>
                       )}
@@ -117,11 +129,18 @@ const navigate = useNavigate();
 
                 </div>
 
-                <div>
-                  {errors.lastName && (
+                <div >
+                  <div className='flex flex-row items-center gap-x-[310px]'>
+                  <label htmlFor="lastName" className=" block  font-medium text-black ">Last Name</label>
+                    <div>
+                    {errors.lastName && (
                     <p className="text-red-500 text-[12px] italic">{errors.lastName.message}</p>
                   )}
-                  <label htmlFor="lastName" className=" block  font-medium text-black ">Last Name</label>
+                    </div>
+                 
+                  
+                  </div>
+               
                   <input
 
                     type="text" name="lastName" id="lastName" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your lastName"
@@ -134,11 +153,17 @@ const navigate = useNavigate();
                   />
 
                 </div>
+
                 <div>
+                  <div className='flex flex-row items-center gap-x-[310px]'>
+                  <label htmlFor="otherNames" className=" block  font-medium text-black ">Other Names</label>
+                  <div>
                   {errors.otherNames && (
                     <p className="text-red-500 text-[12px] italic">{errors.otherNames.message}</p>
                   )}
-                  <label htmlFor="otherNames" className=" block  font-medium text-black ">Other Names</label>
+                  </div>
+                  </div>
+               
                   <input
 
                     type="text" name="otherNames" id="otherNames" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your other names"
@@ -153,26 +178,32 @@ const navigate = useNavigate();
 
 
                 <div>
+                <div className='flex flex-row items-center gap-x-[310px]'>
+                <label htmlFor="userName" className="block  font-medium text-black">username</label>
+                  <div>
                   {errors.userName && (
                     <p className="text-red-500 text-[12px] italic">{errors.userName.message}</p>
                   )}
+                  </div>
+                  </div>
 
-                  {
+                  <div className="gap-x-2 ">
+                    {isUsernameLoading && <Loader /> }
+                    {
                     usernameAvailable && <p className="text-green-500"> Username is available </p>
                   }
-                  
+
                   {
                     usernameNotAvailable && <p className="text-red-500">Username is already taken</p>
 
                   }
-                  <label htmlFor="userName" className="block  font-medium text-black">username</label>
+                  </div>
                   <input
 
-                    type="text" name="userName" id="userName" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your custom userName"
+                    type="text" name="userName" id="userName" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="your custom username"
                     {
                     ...register("userName", {
                       required: "userName is required"
-
 
                     }
                     )}
@@ -182,10 +213,19 @@ const navigate = useNavigate();
                 </div>
 
                 <div>
+                <div className='flex flex-row items-center gap-x-[310px]' >
+                <label htmlFor="email" className="block  font-medium  text-black">Email</label>
+                  <div>
+                  
                   {errors.email && (
                     <p className="text-red-500 text-[12px] italic">{errors.email.message}</p>
                   )}
-                  <label htmlFor="email" className="block  font-medium  text-black">Email</label>
+                  </div>
+                  
+                 
+                  </div>
+                  
+                  
                   <input type="email" name="email" id="email" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow " placeholder="name@company.com"
                     {
                     ...register("email", { required: "email is required" })
@@ -193,11 +233,20 @@ const navigate = useNavigate();
                   />
 
                 </div>
+
                 <div>
+
+                  <div className='flex flex-row items-center gap-x-[310px]'>
+                  <label htmlFor="password" className="block  font-medium  text-black">Password</label>
+                  <div>
                   {errors.password && (
                     <p className="text-red-500 text-[12px]  italic">{errors.password.message}</p>
                   )}
-                  <label htmlFor="password" className="block  font-medium  text-black">Password</label>
+                  </div>
+                 
+                  </div>
+               
+                 
                   <input type="password" name="password" id="password" placeholder="••••••••" className=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg  block w-[350px] p-2.5  placeholder-gray-400 shadow "
                     {
                     ...register("password", { required: "password is required", minLength: 8 })
