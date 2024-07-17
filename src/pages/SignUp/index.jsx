@@ -9,8 +9,6 @@ import { Loader } from 'lucide-react';
 import { debounce } from 'lodash';
 
 
-
-
 const SignUp = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [usernameAvailable, setUsernameAvailable] = useState(false);
