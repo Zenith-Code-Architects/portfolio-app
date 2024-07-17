@@ -2,6 +2,8 @@ import { Link, useLocation } from "react-router-dom"
 import D from "../constants"
 import "../App.css"
 import ZcaLogo from "../assets/images/dashboard-logo.jpg"
+import { Bars2Icon, Bars3Icon } from "@heroicons/react/20/solid"
+import { useState } from "react"
 
 
 const Sidebar = () => {
@@ -9,10 +11,13 @@ const {pathname}= useLocation()
 const paths = pathname.split("/")
 const currentPath = paths[2]
 
+const [isOpen, setIsOpen] = useState(false);
+const toggle = () => setIsOpen (!isOpen);
+
     return (
         <>
              <div className=" ml-3 text-black flex flex-col relative h-screen overflow-y-hidden overflow-x-hidden w-16 hover:w-52 transition-width" style={{ boxShadow: '10px 0 #0db75f' }}>
-                <div className="flex justify-center items-center py-4 border-b-2">
+                <div className="flex items-center justify-between border-b-2">
                     <img src={ZcaLogo} alt="zca-logo" 
                     className="w-1/2" />
                 </div>
@@ -73,6 +78,7 @@ export default Sidebar
         //         <div className='flex items-center h-12'>
         //             <LogOutIcon width={20} height={20} />  Log Out
         //         </div>
+        // first side bar
 
         //     </div>
         //     <div>
