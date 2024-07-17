@@ -25,7 +25,7 @@ const Login = () => {
         password: data.password,
       });
       console.log("Response:", res.data)
-      localStorage.setItem("accessToken", res.data.accessToken)
+      localStorage.setItem("accessToken", res.data.accessToken);
 
       console.log("second: I got called");
       toast.success(res.data)
