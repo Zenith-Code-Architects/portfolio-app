@@ -6,7 +6,7 @@ import { HandThumbUpIcon } from "@heroicons/react/24/outline"
 
 const skillset = [
   {
-    icon: <HandThumbUpIcon className="h-28"/>,
+    icon: <HandThumbUpIcon className=""/>,
     title: 'HTML',
     description: 'Beginner',
   },
