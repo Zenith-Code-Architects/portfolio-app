@@ -24,6 +24,7 @@ import AddBio from './pages/Dashboard/pages/Add-new/AddBio'
 import AddSkill from './pages/Dashboard/pages/Add-new/AddSkill'
 import AddProjects from './pages/Dashboard/pages/Add-new/AddProjects'
 
+
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <LandingPage /> },
