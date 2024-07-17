@@ -2,8 +2,6 @@ import React from 'react';
 import SignUpImage from '../../assets/images/sign-up-bg.jpg'
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { data } from 'autoprefixer';
-
 
 const SignUp = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
