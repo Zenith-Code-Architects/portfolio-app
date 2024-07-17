@@ -11,7 +11,10 @@ const Skills = () => {
     <div className=''>
       <NavBar />
       <PagesLayout headerText='Skills' buttonText='Add New Skills' onClick={() => navigate("/dashboard/skills/add-skill")} />
-      <Table/>
+      <div className='flex flex-col items-center h-screen'>
+        <Table />
+      </div>
+
     </div>
   )
 }

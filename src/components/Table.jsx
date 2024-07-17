@@ -3,9 +3,9 @@ import React from 'react'
 
 const Table = () => {
   return (
-    <div>
-        <table>
-            <thead>
+    <div className='w-full '>
+        <table className='block overflow-hidden table-auto border-collapse shadow-[0_10px_10px_#ccc] rounded-lg whitespace-nowrap w-[1000px] max-w-[80%] m-auto overflow-x-auto'>
+            <thead className='bg-[#ccc]'>
                 <tr>
                     <th>Skills</th>
                     <th>Level Of Proficiency</th>

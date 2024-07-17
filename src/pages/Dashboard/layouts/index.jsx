@@ -6,7 +6,7 @@ import NavBar from '../../../components/NavBar'
 const DashboardLayout = () => {
     return (
         <>
-            <div className='flex'>
+            <div className='flex bg-[#fafdf6]'>
                 <div className=''>
                     <Sidebar />
                 </div>
