@@ -1,11 +1,11 @@
 import { apiClient } from "./config"
 
-export const apiAddSkill = async (payload) => {
-return apiClient.post("/skills", payload)
+export const apiGetSkills = async () => {
+    return apiClient.get("/skills")
 };
 
-export const apiGetSkills = async () =>{
-return apiClient.get("/skills")
+export const apiAddSkill = async (payload) => {
+    return apiClient.post("/skills", payload)
 };
 
 export const apiGetSkillById = async (id) => {

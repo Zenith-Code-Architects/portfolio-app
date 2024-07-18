@@ -4,10 +4,11 @@ import PagesLayout from "../layouts/PagesLayout"
 import { apiGetSkills } from "../../../services/skills";
 import { apiGetAchievements } from "../../../services/achievements";
 import { apiGetProjects } from "../../../services/projects";
-import { apiGetEducation } from "../../../services/education";
+import { apiGetEducations } from "../../../services/education";
 import { apiGetExperiences } from "../../../services/experiences";
-import { apiGetVolunteering } from "../../../services/volunteering";
+import { apiGetVolunteerings } from "../../../services/volunteering";
 import { apiGetLicenses } from "../../../services/licenses";
+import PageLoader from "../components/PageLoader";
 
 
 
@@ -17,10 +18,10 @@ const Overview = () => {
     skills: 0,
     projects: 0,
     achievements: 0,
-    volunteering: 0,
+    volunteerings: 0,
     experiences: 0,
     licenses: 0,
-    education: 0,
+    educations: 0,
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -33,30 +34,34 @@ const Overview = () => {
         totalSkills,
         totalAchievements,
         totalProjects,
-        totalEducation,
-        totalExperience,
-        totalVolunteering,
+        totalEducations,
+        totalExperiences,
+        totalVolunteerings,
         totalLicenses,
       ]
         = await Promise.all([
-          apiGetSkills,
-          apiGetAchievements,
-          apiGetProjects,
-          apiGetEducation,
-          apiGetVolunteering,
-          apiGetExperiences,
-          apiGetLicenses,
+          apiGetSkills(),
+          apiGetAchievements(),
+          apiGetProjects(),
+          apiGetEducations(),
+          apiGetVolunteerings(),
+          apiGetExperiences(),
+          apiGetLicenses(),
         ]);
+
+      console.log("total skills", totalSkills)
 
       const newData = {
         skills: totalSkills.length,
         projects: totalProjects.length,
         achievements: totalAchievements.length,
-        volunteering: totalVolunteering.length,
-        experiences: totalExperience.length,
+        volunteering: totalVolunteerings.length,
+        experiences: totalExperiences.length,
         licenses: totalLicenses.length,
-        education: totalEducation.length,
+        education: totalEducations.length,
       };
+      console.log(newData)
+
       setData(newData);
     } catch (error) {
       console.log(error);
@@ -66,14 +71,20 @@ const Overview = () => {
   };
 
   useEffect(() => {
-    // getData();
+    getData();
   }, [])
 
   return (
-    <div>
-      <NavBar />
-      <PagesLayout />
-    </div>
+    <>
+      {
+        isLoading ?
+          <PageLoader /> :
+          <div>
+            <NavBar />
+            <PagesLayout />
+          </div>
+      }
+    </>
   )
 };
 
