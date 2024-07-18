@@ -53,8 +53,8 @@ const Skills = () => {
               {
                 skills.length == 0 ? <p>No skill added yet</p> :
                   <>
-                    <div className='w-full '>
-                      <table className='block overflow-hidden table-auto border-collapse shadow-[0_10px_10px_#ccc] rounded-lg whitespace-nowrap w-[1000px] max-w-[80%] m-auto overflow-x-auto'>
+                    <div className='w-full flex justify-center'>
+                      <table className='table-auto border-collapse shadow-lg rounded-lg w-full max-w-4xl'>
                         <thead className='bg-[#ccc] text-[#222]'>
                           <tr>
                             <th className='p-4'>Skills</th>
@@ -71,10 +71,10 @@ const Skills = () => {
                                 <td className='p-4' >
                                   <button onClick={() => handleDelete(skill.id)}> 
                                     {
-                                      isDeleting ? <Loader/> : <TrashIcon width={15} height={15} />
+                                      isDeleting ? <Loader/> : <TrashIcon width={15} height={15} className='text-red-500 cursor-pointer'/>
                                     } 
                                     </button>
-                                  <button> <PencilIcon width={15} height={15} /></button>
+                                  <button> <PencilIcon width={15} height={15} className='text-blue-500 cursor-pointer'/></button>
                                 </td>
                               </tr>
                             })

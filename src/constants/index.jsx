@@ -43,6 +43,11 @@ const D = {
             path: "achievements",
             Icon: <Medal width={20} height={20} />
         },
+        {
+            name: "Socials",
+            path: "socials",
+            Icon: <Medal width={20} height={20} />
+        },
         
         {
             name: "Log Out",

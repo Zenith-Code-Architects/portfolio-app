@@ -10,7 +10,7 @@ const DashboardLayout = () => {
                 <div className=''>
                     <Sidebar />
                 </div>
-                <div className='w-full overflow-y-auto pl-3 bg-[#fafdf6]'>
+                <div className='w-full overflow-y-auto pl-3'>
                     <Outlet />
                 </div>
 
