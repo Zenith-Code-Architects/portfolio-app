@@ -6,11 +6,11 @@ import NavBar from '../../../components/NavBar'
 const DashboardLayout = () => {
     return (
         <>
-            <div className='flex '>
+            <div className='flex h-screen'>
                 <div className=''>
                     <Sidebar />
                 </div>
-                <div className='w-full pl-3 bg-[#fafdf6]'>
+                <div className='w-full overflow-y-auto pl-3 bg-[#fafdf6]'>
                     <Outlet />
                 </div>
 

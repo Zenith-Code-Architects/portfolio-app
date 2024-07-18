@@ -52,6 +52,32 @@ const D = {
        
 
     ],
+    SKILLS: [
+        {
+            name: "React JS",
+            levelOfProficiency: "Expert"
+        },
+        {
+            name: "C#",
+            levelOfProficiency: "Beginner"
+        },
+        {
+            name: "HTML",
+            levelOfProficiency: "Advanced"
+        },
+        {
+            name: "CSS",
+            levelOfProficiency: "Basic"
+        },
+        {
+            name: "JavaScript",
+            levelOfProficiency: "Expert"
+        },
+        {
+            name: "Node JS",
+            levelOfProficiency: "None"
+        },
+    ]
 };
 
 export default D
