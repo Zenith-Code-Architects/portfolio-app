@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom"
 import D from "../constants"
 import "../App.css"
 import ZcaLogo from "../assets/images/dashboard-logo.jpg"
-import { Bars2Icon, Bars3Icon } from "@heroicons/react/20/solid"
 import { useState } from "react"
 
 
