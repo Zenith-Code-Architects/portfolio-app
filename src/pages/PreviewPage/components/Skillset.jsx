@@ -1,43 +1,41 @@
 import React from 'react'
 import SkillsetCard from '../../../components/SkillsetCard';
-import { HandThumbUpIcon } from "@heroicons/react/24/outline"
+import htmlIcon from '../../../assets/images/html5_icon.svg';
+import htmlIcon1 from '../../../assets/icons/react_js_icon.png';
+import htmlIcon2 from '../../../assets/icons/js_icon.png';
 
 
 
 const skillset = [
   {
-    icon: <HandThumbUpIcon className=""/>,
+    icon: htmlIcon,
     title: 'HTML',
-    description: 'Beginner',
+    description: 'Beginner', 
   },
   {
-    icon: 'fas fa-code',
+    icon: htmlIcon1,
     title: 'React',
     description: 'Intermediate',
   },
   {
-    icon: 'fas fa-mobile-alt',
+    icon: htmlIcon2,
     title: 'Javascript',
     description: 'Advanced',
   },
-  {
-    icon: 'fas fa-search',
-    title: 'GitHub',
-    description: 'Expert',
-  },
+ 
   
 ];
 
 const Skillset = () => {
   return (
-    <section id="Skillset" className="py-12 bg-gray-100">
+    <section id="Skillset" className="py-12 px-5 bg-gray-100">
 
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-2">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold">Skills</h2>
 
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid  md:grid-cols-3  ">
         {skillset.map((skillset, index) => (
           <SkillsetCard
             key={index}
