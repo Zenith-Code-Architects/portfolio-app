@@ -2,7 +2,6 @@ import { Link, useLocation } from "react-router-dom"
 import D from "../constants"
 import "../App.css"
 import ZcaLogo from "../assets/images/dashboard-logo.jpg"
-import { Bars2Icon, Bars3Icon } from "@heroicons/react/20/solid"
 import { useState } from "react"
 
 
@@ -10,9 +9,6 @@ const Sidebar = () => {
 const {pathname}= useLocation()
 const paths = pathname.split("/")
 const currentPath = paths[2]
-
-const [isOpen, setIsOpen] = useState(false);
-const toggle = () => setIsOpen (!isOpen);
 
     return (
         <>

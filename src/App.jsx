@@ -7,8 +7,6 @@ import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 import Overview from './pages/Dashboard/pages/Overview'
 import Skills from './pages/Dashboard/pages/Skills'
-import Socials from './pages/Dashboard/pages/Socials'
-import Contact from './pages/Dashboard/pages/Contact'
 import DashboardLayout from './pages/Dashboard/layouts/index'
 import Bio from './pages/Dashboard/pages/Bio'
 import Experiences from './pages/Dashboard/pages/Experiences'
@@ -95,14 +93,6 @@ function App() {
        {
         path: "licenses/add-license",
         element: <AddLicense/>
-       },
-       {
-        path: "contact",
-        element: <Contact/>
-       },
-       {
-        path: "socials",
-        element: <Socials/>
        }
       ]
     },
