@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 .transition-width {
     transition: width 0.5s;
@@ -40,3 +48,41 @@
     z-index: 1;
     background-clip: border-box;
   }
+
+  /* Add this to a CSS file or in your global styles */
+@keyframes fadeInStagger {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.staggered-item {
+  opacity: 0;
+  animation: fadeInStagger 1s ease-in-out forwards;
+}
+
+/* Adjust delay as necessary */
+.staggered-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.staggered-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.staggered-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.staggered-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.staggered-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.staggered-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.staggered-item:nth-child(7) {
+  animation-delay: 0.7s;
+}

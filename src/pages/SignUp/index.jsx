@@ -64,7 +64,7 @@ const SignUp = () => {
       userName: data.userName,
       password: data.password,
       email: data.email,
-      confirmedPassword: data.password,
+      confirmPassword: data.password,
 
     }
     if (data.otherNames) {
@@ -74,7 +74,6 @@ const SignUp = () => {
       const res = await apiSignUp(payload)
       console.log(res.data);
       toast.success(res.data)
-      toast.success(res.data)
       setTimeout(() => {
         navigate("/login");
       }, 5000)
@@ -82,7 +81,6 @@ const SignUp = () => {
 
     catch (error) {
       console.log(error);
-      toast.error(error)
       toast.error("An error occured");
 
     } finally {
@@ -103,7 +101,7 @@ const SignUp = () => {
               <h1 className="text-center text-xl font-bold leading-tight tracking-tight  md:text-2xl text-black">
                 Create an account
               </h1>
-              <form className=" md:space-y-2 " action="#" onSubmit={handleSubmit(onSubmit)}>
+              <form className=" md:space-y-2 "  onSubmit={handleSubmit(onSubmit)}>
 
                 <div className=''>
                   <div className='flex flex-row items-center gap-x-[310px]'>
@@ -269,9 +267,9 @@ const SignUp = () => {
                   {/* <div className="flex items-center h-5">
                     <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-teal-600 rounded bg-teal-600 focus:ring-3 focus:ring-primary-300  focus:ring-primary-600 ring-offset-teal-600" />
                   </div> */}
-                  <div className="ml-3 text-sm  ">
-                    <label htmlFor="terms" className="font-light text-black">By creating an account you agree to the ZCA <Link className="font-medium text-primary-600 hover:underline " to="#">Terms and Conditions</Link> </label>
-                  </div>
+                
+
+
                 </div>
 
                 <button type="submit" className="text-black w-[350px] bg-[#005C66] hover:bg-[#E1B987] focus:ring-4 focus:outline-6 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800 shadow">Create an account

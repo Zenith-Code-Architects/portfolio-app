@@ -23,16 +23,18 @@ const Login = () => {
       const res = await apiLogin({
         email: data.email,
         password: data.password,
-      })
-      console.log("Response:", res)
-      console.log("second: I got called");
-toast.success(res.data)
-setTimeout(()=> {
-    //redirect to dashboard
-    navigate("/dashboard")
-}, 5000)
+      });
+      console.log("Response:", res.data)
+      localStorage.setItem("accessToken", res.data.accessToken);
 
-    
+      console.log("second: I got called");
+      toast.success(res.data)
+      setTimeout(() => {
+        //redirect to dashboard
+        navigate("/dashboard");
+      }, 5000);
+
+
 
     } catch (error) {
       console.log(error);
@@ -105,7 +107,7 @@ setTimeout(()=> {
 
             <button type="submit" className="mt-4 py-3 px-8 bg-blue-600 text-white rounded-md ">
               {isSubmitting ? <InfinitySpin
-                visible={true}  
+                visible={true}
                 width="200"
                 color="#4fa94d"
                 ariaLabel="infinity-spin-loading"
