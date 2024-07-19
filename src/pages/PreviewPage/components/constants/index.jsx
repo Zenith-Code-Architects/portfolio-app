@@ -1,36 +1,38 @@
+import { EnvelopeIcon } from "@heroicons/react/20/solid"
 import { HomeIcon } from "@heroicons/react/20/solid"
+import { ContactIcon, InfoIcon, MailIcon, MessageCircleCodeIcon, MessageCirclePlusIcon, ServerIcon, UserIcon } from "lucide-react"
 
 const N = {
     NAVLINKS:[
         {
             name:"Home",
             path:"",
-            Icon: <HomeIcon width={20} height={20}/>
+            Icon: <HomeIcon className="w-5 h-5"/>
         },
         {
             name:"About",
             path:"",
-            Icon: <HomeIcon width={20} height={20}/>
+            Icon: <UserIcon className="w-5 h-5"/>
         },
         {
             name:"Skills",
             path:"", 
-            Icon: <HomeIcon width={20} height={20}/>
+            Icon: <ServerIcon className="w-5 h-5"/>
         },
         {
             name:"Resume",
             path:"", 
-            Icon: <HomeIcon width={20} height={20}/>
+            Icon: <ContactIcon className="w-5 h-5"/>
         },
         {
             name:"Portfolio",
             path:"", 
-            Icon: <HomeIcon width={20} height={20}/>
+            Icon: <EnvelopeIcon className="w-5 h-5"/>
         },
         {
             name:"Contact",
             path:"",
-            Icon: <HomeIcon width={20} height={20}/>
+            Icon: <MailIcon className="w-5 h-5"/>
         },
 
     ]
