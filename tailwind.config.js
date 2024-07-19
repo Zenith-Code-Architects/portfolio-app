@@ -6,8 +6,8 @@ export default {
   ],
   theme: {
     extend: {
-
-      colors:{
+      colors: {
+        primary: "#0db75f",  // Re-added primary color
         maroon: {
           '50': '#f9f2f2',
           '100': '#f3e5e5',
@@ -20,12 +20,17 @@ export default {
           '800': '#5e001a',
           '900': '#400010',
         },
-        primary: "#0db75f"
-     
+      },
+      keyframes: {
+        fadeInStagger: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      },
+      animation: {
+        fadeInStagger: 'fadeInStagger 1s ease-in-out',
       },
     },
   },
   plugins: [],
 }
-
-

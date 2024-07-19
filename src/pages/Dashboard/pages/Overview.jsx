@@ -25,11 +25,10 @@ const Overview = () => {
     educations: 0,
   });
 
-  const [isLoading, setIsLoading] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(true); // Start loading initially
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
 
   const getData = async () => {
-    setIsLoading(true)
     try {
       const [
         totalSkills,
@@ -39,112 +38,112 @@ const Overview = () => {
         totalExperiences,
         totalVolunteerings,
         totalLicenses,
-      ]
-        = await Promise.all([
-          apiGetSkills(),
-          apiGetAchievements(),
-          apiGetProjects(),
-          apiGetEducations(),
-          apiGetVolunteerings(),
-          apiGetExperiences(),
-          apiGetLicenses(),
-        ]);
-
-      console.log("total skills", totalSkills)
+      ] = await Promise.all([
+        apiGetSkills(),
+        apiGetAchievements(),
+        apiGetProjects(),
+        apiGetEducations(),
+        apiGetVolunteerings(),
+        apiGetExperiences(),
+        apiGetLicenses(),
+      ]);
 
       const newData = {
         skills: totalSkills.length,
         projects: totalProjects.length,
         achievements: totalAchievements.length,
-        volunteering: totalVolunteerings.length,
+        volunteerings: totalVolunteerings.length,
         experiences: totalExperiences.length,
         licenses: totalLicenses.length,
-        education: totalEducations.length,
+        educations: totalEducations.length,
       };
-      console.log(newData)
 
       setData(newData);
+      setIsDataLoaded(true); // Set data loaded
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getData();
-  }, [])
+  }, []);
 
   return (
-
     <>
-      {
-        isLoading ?
-          <PageLoader /> :
-          <div>
-            <div>
-              <NavBar />
-              <PagesLayout headerText="Overview">
-                <div className="">
-                  <div className="flex justify-between">
-                    <p className="text-2xl">Hello Lilian welcome to your Dashboard</p>
-                  </div>
+      {isLoading ? (
+        <PageLoader />
+      ) : (
+        <div className={`p-4 bg-white ${isDataLoaded ? 'animate-fadeIn' : ''}`}>
+          <NavBar />
+          <PagesLayout headerText="Overview">
+            <div className="">
+              <div className="flex justify-between mb-4">
+                <p className="text-2xl">Hello Lilian, welcome to your Dashboard</p>
+              </div>
 
-                  <div className="grid grid-cols-[1fr_1fr_1fr] gap-5 my-5">
-
-                    <div className="border-l-8 border-l-[#246fec]">
-                      <OverviewCard
-                        heading="Achievements"
-                        icon={<ShoppingBagIcon width={20} />}
-                        statistics="23"
-                      />
-                    </div>
-
-                    <div className="border-l-8 border-l-[#f5674f]">
-                      <OverviewCard
-                        heading="Achievements"
-                        icon={<ShoppingBagIcon width={20} />}
-                        statistics="23"
-                      />
-                    </div>
-
-                    <div className="border-l-8 border-l-[#367952]">
-                      <OverviewCard
-                        heading="Achievements"
-                        icon={<ShoppingBagIcon width={20} />}
-                        statistics="23"
-                      />
-                    </div>
-
-                    <div className="border-l-8 border-l-[#cc3c43]">
-                      <OverviewCard
-                        heading="Achievements"
-                        icon={<ShoppingBagIcon width={20} />}
-                        statistics="23"
-                      />
-                    </div>
-
-                    <div className="border-l-8 border-l-[#246fec]">
-                      <OverviewCard
-                        heading="Achievements"
-                        icon={<ShoppingBagIcon width={20} />}
-                        statistics="23"
-                      />
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-5">
+                <div className="border-l-8 border-l-[#246fec]">
+                  <OverviewCard
+                    heading="Achievements"
+                    icon={<ShoppingBagIcon width={20} />}
+                    statistics={data.achievements}
+                  />
                 </div>
+                <div className="border-l-8 border-l-[#f5674f]">
+                  <OverviewCard
+                    heading="Projects"
+                    icon={<ShoppingBagIcon width={20} />}
+                    statistics={data.projects}
+                  />
                 </div>
-              </PagesLayout>
-
-
+                <div className="border-l-8 border-l-[#367952]">
+                  <OverviewCard
+                    heading="Skills"
+                    icon={<ShoppingBagIcon width={20} />}
+                    statistics={data.skills}
+                  />
+                </div>
+                <div className="border-l-8 border-l-[#cc3c43]">
+                  <OverviewCard
+                    heading="Volunteering"
+                    icon={<ShoppingBagIcon width={20} />}
+                    statistics={data.volunteerings}
+                  />
+                </div>
+                <div className="border-l-8 border-l-[#246fec]">
+                  <OverviewCard
+                    heading="Experiences"
+                    icon={<ShoppingBagIcon width={20} />}
+                    statistics={data.experiences}
+                  />
+                </div>
+                <div className="border-l-8 border-l-[#f5674f]">
+                  <OverviewCard
+                    heading="Licenses"
+                    icon={<ShoppingBagIcon width={20} />}
+                    statistics={data.licenses}
+                  />
+                </div>
+                <div className="border-l-8 border-l-[#367952]">
+                  <OverviewCard
+                    heading="Education"
+                    icon={<ShoppingBagIcon width={20} />}
+                    statistics={data.educations}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-      }
+          </PagesLayout>
+        </div>
+      )}
     </>
-  )
+  );
 };
 
-
-export default Overview
+export default Overview;
 
 
 

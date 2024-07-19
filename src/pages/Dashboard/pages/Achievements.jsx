@@ -6,6 +6,8 @@ import Tile from '../../../components/Tile'
 
 const Achievements = () => {
     const navigate = useNavigate()
+
+    
     return (
         <div>
             <NavBar />

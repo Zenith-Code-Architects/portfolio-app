@@ -65,7 +65,7 @@ const Skills = () => {
                         <tbody>
                           {
                             skills.map((skill, index) => {
-                              return <tr cls key={index}>
+                              return <tr key={index}>
                                 <td className='p-4 border-t-[0.5px] border-[#ddd] overflow-hidden overflow-ellipsis'>{skill.name}</td>
                                 <td className='p-4'>{skill.levelOfProficiency}</td>
                                 <td className='p-4' >

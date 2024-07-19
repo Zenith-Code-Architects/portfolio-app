@@ -16,6 +16,6 @@ export const apiUpdateEducation = async (id) => {
     return apiClient.patch(`/educations/ ${id}`)
 };
 
-export const apiDeleteSkill = async (id) => {
+export const apiDeleteEducation = async (id) => {
     return apiClient.delete(`/educations/ ${id}`)
 };

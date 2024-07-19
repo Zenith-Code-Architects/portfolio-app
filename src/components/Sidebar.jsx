@@ -10,9 +10,6 @@ const {pathname}= useLocation()
 const paths = pathname.split("/")
 const currentPath = paths[2]
 
-const [isOpen, setIsOpen] = useState(false);
-const toggle = () => setIsOpen (!isOpen);
-
     return (
         <>
              <div className=" ml-3 text-black flex flex-col relative h-screen overflow-y-hidden overflow-x-hidden w-16 hover:w-52 transition-width" style={{ boxShadow: '10px 0 #0db75f' }}>

@@ -77,6 +77,36 @@ const D = {
             name: "Node JS",
             levelOfProficiency: "None"
         },
+    ],
+    EDUCATIONS: [
+        {
+            name: "Name Of Institution",
+            textEntered: "Expert"
+        },
+        {
+            name: " Location",
+            textEntered: "Beginner"
+        },
+        {
+            name: "Program",
+            textEntered: "Advanced"
+        },
+        {
+            name: " Qualification Obtained",
+            textEntered: "Basic"
+        },
+        {
+            name: "Grade",
+            textEntered: "Expert"
+        },
+        {
+            name: "Date of Enrollment",
+            textEntered: "None"
+        },
+        {
+            name: "Date of Completion",
+            textEntered: "None"
+        },
     ]
 };
 
