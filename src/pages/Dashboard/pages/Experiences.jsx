@@ -11,7 +11,6 @@ const Experiences = () => {
     <div>
       <NavBar/>
       <PagesLayout buttonText="Add New" onClick={()=> navigate("/dashboard/experiences/add-experience")}/>
-        <Tile/>
     </div>
   )
 }
