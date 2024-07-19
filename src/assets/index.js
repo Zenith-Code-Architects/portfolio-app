@@ -1,4 +1,6 @@
 
 import signupBg from "./images/signup-bg.jpg"
+import portfolio2 from "./images/tech-bg.jpg"
 
-export { signupBg}
+
+export { signupBg, portfolio2}

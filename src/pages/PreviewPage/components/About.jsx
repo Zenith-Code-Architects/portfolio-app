@@ -8,10 +8,8 @@ const About = () => {
       {/* Section Title */}
       <div className="container flex flex-col relative text-center">
         <span className='absolute top-7 text-[#eef0f2] left-0 right-0 z-[1] font-bold text-5xl leading-[0]'>ABOUT ME</span>
-        <h2 className='text-3xl font-bold mb-5 pb-0 relative z-[2]'>About Me</h2>
-        <p>
-          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
-        </p>
+        <h2 className='text-3xl font-bold mb-5 pb-0 pt-3 relative z-[2]'>About Me</h2>
+        
       </div>
       {/* End Section Title */}
 

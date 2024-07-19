@@ -16,7 +16,7 @@ const PreviewPage = () => {
     < About/>  
     < Skillset/>
     < Resume/>
-    < Portfolio/>
+    < Portfolio />
     < Contact/>  
     < Footer/>  
     </div>
