@@ -1,5 +1,5 @@
-import { CalendarIcon, GlobeAmericasIcon, HomeIcon, PhoneIcon, UserIcon } from "@heroicons/react/20/solid";
-import { LogOutIcon, Medal } from "lucide-react";
+import { CalendarIcon, CreditCardIcon, GlobeAmericasIcon, HomeIcon, PhoneIcon, UserIcon } from "@heroicons/react/20/solid";
+import { GraduationCapIcon, LogOutIcon, Medal } from "lucide-react";
 
 const D = {
     DASHBOARDLINKS: [
@@ -16,12 +16,12 @@ const D = {
         {
             name: "Education",
             path: "education",
-            Icon: <UserIcon width={20} height={20} />
+            Icon: <GraduationCapIcon width={20} height={20} />
         },
         {
             name: "Licenses",
             path: "licenses",
-            Icon: <LogOutIcon width={20} height={20} />
+            Icon: <CreditCardIcon width={20} height={20} />
         },
         {
             name: "Skills",
@@ -43,13 +43,13 @@ const D = {
             path: "achievements",
             Icon: <Medal width={20} height={20} />
         },
-        
+
         {
             name: "Log Out",
             path: "/",
             Icon: <LogOutIcon width={20} height={20} />
         },
-       
+
 
     ],
     SKILLS: [
@@ -107,6 +107,31 @@ const D = {
             name: "Date of Completion",
             textEntered: "None"
         },
+    ],
+    ACHIEVEMENTS: [
+        {
+            name: "Award Name or Achievement",
+            textEntered:"Best Developer"
+        },
+        {
+            name: "Name of Organization",
+            textEntered:"Best Developer"
+        },
+        {
+            name: "Image of Award or Achievement",
+            textEntered:"Best Developer"
+        },
+        {
+            name: "Description",
+            textEntered:"Best Developer"
+        },
+        
+        {
+            name: "Date Obtained",
+            textEntered:"Best Developer"
+        },
+        
+        
     ]
 };
 

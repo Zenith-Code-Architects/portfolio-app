@@ -4,7 +4,6 @@ import PagesLayout from '../layouts/PagesLayout'
 import NavBar from '../../../components/NavBar'
 import { apiDeleteEducation, apiGetEducations } from '../../../services/education'
 import Loader from '../../../components/Loader'
-import D from '../../../constants'
 
 const Education = () => {
   const navigate = useNavigate();

@@ -42,7 +42,7 @@ const Bio = () => {
 
           <BioOverview
             label="Bio"
-            result="Lilian Ziwu is a passionate software engineer based in New York City, with a strong background in web development and a keen interest in technology and innovation. With a Bachelor's degree in Computer Science and over 5 years of experience,she has played a key role in numerous projects, demonstrating expertise in JavaScript, React.js, Node.js, and Python. Her dedication to continuous learning and collaborative spirit has earned her recognition for both technical skills and leadership. Outside of work, Lilian enjoys hiking, playing guitar, and volunteering in her community."
+            result="Lilian Ziwu is a passionate software engineer based in New York City, with a strong background in web development and a keen interest in technology and innovation. With a Bachelor's degree in Computer Science and over 5 years of experience,she has played a key role in numerous projects, demonstrating expertise in JavaScript, React.js, Node.js, and Python. Her dedication to continuous learning and collaborative spirit has earned her recognition for both technical skills and leadership. Outside of work,Lilian enjoys hiking, playing guitar, and volunteering in her community."
             className="staggered-item"
           />
 
@@ -53,9 +53,9 @@ const Bio = () => {
               label="Socials"
               result={
                 <ul className="list-disc list-inside staggered-item">
-                  <li> <img src={GitHub} alt="github icon" className='w-1/2'/> <Link className="text-blue-500" to="https://github.com/your-profile">your-profile</Link></li>
-                  <li><img src={LinkedIn}  alt="linkedin icon" /> <Link className="text-blue-500" to="https://linkedin.com/in/your-profile">your-profile</Link></li>
-                  <li><img src={Twitter} alt="twitter icon" /><Link className="text-blue-500" to="https://twitter.com/your-profile">@your-profile</Link></li>
+                  <li>GitHub: <Link className="text-blue-500" to="https://github.com/your-profile">your-profile</Link></li>
+                  <li>LinkedIn:<Link className="text-blue-500" to="https://linkedin.com/in/your-profile">your-profile</Link></li>
+                  <li>Twitter: <Link className="text-blue-500" to="https://twitter.com/your-profile">@your-profile</Link></li>
                 </ul>
               }
               className="staggered-item"
