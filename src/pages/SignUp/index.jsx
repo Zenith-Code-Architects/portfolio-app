@@ -267,13 +267,15 @@ const SignUp = () => {
                   {/* <div className="flex items-center h-5">
                     <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-teal-600 rounded bg-teal-600 focus:ring-3 focus:ring-primary-300  focus:ring-primary-600 ring-offset-teal-600" />
                   </div> */}
-                  {/* <div className="ml-3 text-sm  ">
-                    <label htmlFor="terms" className="font-light text-black">I accept the <Link className="font-medium text-primary-600 hover:underline " to="#">Terms and Conditions</Link> </label>
-                  </div> */}
+                
+
+
                 </div>
+
                 <button type="submit" className="text-black w-[350px] bg-[#005C66] hover:bg-[#E1B987] focus:ring-4 focus:outline-6 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-600 hover:bg-primary-700 focus:ring-primary-800 shadow">Create an account
                   {isSubmitting ? "Loading..." : "Signup"}
                 </button>
+
                 <p className="text-sm font-light text-black">
                   Already have an account? <Link to="#" className="font-medium text-primary-600 hover:underline ">Login here</Link>
                 </p>
