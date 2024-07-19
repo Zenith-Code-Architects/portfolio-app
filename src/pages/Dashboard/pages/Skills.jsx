@@ -44,7 +44,7 @@ const Skills = () => {
 
   return (
     <>
-      <NavBar /><PagesLayout headerText='Skills' buttonText='Add New Skills' onClick={() => navigate("/dashboard/skills/add-skill")} /><div className='flex flex-col items-center h-screen'>
+      <NavBar /><PagesLayout headerText='Skills' buttonText='Add New' onClick={() => navigate("/dashboard/skills/add-skill")} /><div className='flex flex-col items-center h-screen'>
 
         {
           isLoading ?
