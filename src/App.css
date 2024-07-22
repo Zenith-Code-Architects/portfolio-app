@@ -12,6 +12,18 @@
   }
 
 
+.landing{
+  background-image: url(./assets/images/code.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.landing-overlay{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 #nav span::after{
     content: '';
     position: absolute;

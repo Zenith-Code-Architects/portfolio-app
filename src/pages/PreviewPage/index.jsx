@@ -11,7 +11,7 @@ import Footer from './components/Footer'
 const PreviewPage = () => {
   return (
     <div>
-    < Navbar/>  
+    {/* < Navbar/>   */}
     < Hero/>  
     < About/>  
     < Skillset/>

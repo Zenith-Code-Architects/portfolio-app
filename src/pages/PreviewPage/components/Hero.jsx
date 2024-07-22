@@ -9,9 +9,9 @@ const Hero = () => {
       <div className="hero-container py-20 flex items-center content-center relative min-h-screen">
         <img src={HeroImage} alt="Hero Background" className="absolute inset-0 block w-full h-full  z-0" />
         <div className="container relative z-[3] px-3 -mx-28">
-          <div className="flex justify-center">
-            <div className="text-[#07090c] text-center">
-              <h2 className="text-5xl font-bold">Lilian Ziwu</h2>
+          <div className="flex justify-center ">
+            <div className="text-[#07090c] text-center ml-[400px]">
+              <h2 className="text-5xl font-bold ">Lilian Ziwu</h2>
               <p>I'm <span>Freelancer, Designer, Developer, Photographer</span><span className="typed-cursor" >|</span><span></span></p>
               <p className='flex justify-center mt-4 space-x-4'>
                 <InstagramIcon className='w-6 h-6'/>

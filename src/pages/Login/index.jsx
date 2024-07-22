@@ -114,7 +114,7 @@ const Login = () => {
               /> : "Login"}
             </button>
             <div className="mt-4 text-sm text-gray-600">
-              Don't have an account? <a href="#" className="text-blue-600 hover:underline">Register</a>
+              Don't have an account? <Link to="/signup" className="text-blue-600 hover:underline">Register</Link>
             </div>
 
 
