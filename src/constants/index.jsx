@@ -44,12 +44,6 @@ const D = {
             Icon: <Medal width={20} height={20} />
         },
 
-        {
-            name: "Log Out",
-            path: "/",
-            Icon: <LogOutIcon width={20} height={20} />
-        },
-
 
     ],
     SKILLS: [

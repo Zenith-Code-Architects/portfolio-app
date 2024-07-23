@@ -12,8 +12,8 @@ export const apiGetAchievementById = async (id) => {
     return apiClient.get(`/achievements/ ${id}`)
 };
 
-export const apiUpdateAchievement = async (id) => {
-    return apiClient.patch(`/achievements/ ${id}`)
+export const apiUpdateAchievement = async (id, payload) => {
+    return apiClient.patch(`/achievements/ ${id}`, payload)
 };
 
 export const apiDeleteAchievement = async (id) => {
