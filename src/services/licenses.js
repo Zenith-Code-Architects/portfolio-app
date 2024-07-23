@@ -12,8 +12,8 @@ export const apiGetapiAddLicenseById = async (id) => {
     return apiClient.get(`/licenses/ ${id}`)
 };
 
-export const apiUpdateLicense = async (id) => {
-    return apiClient.patch(`/licenses/ ${id}`)
+export const apiUpdateLicense = async (id, payload) => {
+    return apiClient.patch(`/licenses/ ${id}`, payload)
 };
 
 export const apiDeleteLicense = async (id) => {

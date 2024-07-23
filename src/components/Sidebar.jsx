@@ -54,7 +54,7 @@ const Sidebar = () => {
                 </div>
                 <button className="flex gap-x-4 items-center mt-auto hover:bg-primary hover:text-white hover:shadow-lg"
                     onClick={logout}>
-                    <span className="bg-pink text-white p-2 rounded-full">
+                    <span className="bg-white text-black p-2 rounded-full">
                         <LogOut />
                         <span>Logout</span>
                     </span>

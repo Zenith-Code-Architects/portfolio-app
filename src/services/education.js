@@ -12,8 +12,8 @@ export const apiGetEducationById = async (id) => {
     return apiClient.get(`/educations/ ${id}`)
 };
 
-export const apiUpdateEducation = async (id) => {
-    return apiClient.patch(`/educations/ ${id}`)
+export const apiUpdateEducation = async (id, payload) => {
+    return apiClient.patch(`/educations/ ${id}`, payload)
 };
 
 export const apiDeleteEducation = async (id) => {
