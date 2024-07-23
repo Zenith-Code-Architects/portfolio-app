@@ -21,15 +21,29 @@ import AddLicense from './pages/Dashboard/pages/Add-new/AddLicense'
 import AddBio from './pages/Dashboard/pages/Add-new/AddBio'
 import AddSkill from './pages/Dashboard/pages/Add-new/AddSkill'
 import AddProjects from './pages/Dashboard/pages/Add-new/AddProjects'
+import AuthLayout from './pages/auth/layouts/authLayout'
+import NotFound from "./pages/NotFound";
+import { toast } from "react-toastify";
+import { apiGetUserDetails } from "./services/preview";
 
 
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <LandingPage /> },
 
-    { path: "login", element: <Login /> },
-
-    { path: "signup", element: <SignUp /> },
+    {
+      element: <AuthLayout />,
+      children: [
+        {
+          path: "login",
+          element: <Login />,
+        },
+        {
+          path: "signup",
+          element: <SignUp />,
+        },
+      ],
+    },
 
     {
       path: "dashboard", element: <DashboardLayout/>,
@@ -97,12 +111,27 @@ function App() {
       ]
     },
 
-    { path: "preview", element: <PreviewPage /> },
-  ])
+    { path: "preview/:username", element: <PreviewPage />,   loader: async ({ params }) => {
+      const username = params.username;
+      try {
+        const response = await apiGetUserDetails(username);
+        const userBioData = response?.data.user;
+        return userBioData;
+      } catch (error) {
+        toast.error("An error occured");
+        return null;
+      }
+    },
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
 
 
 
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 
 }
 

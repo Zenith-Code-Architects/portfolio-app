@@ -1,21 +1,13 @@
-import { apiClient } from "./config"
-
-export const apiGetBio = async () => {
-    return apiClient.get("/bio")
-};
+import { apiClient } from "./config";
 
 export const apiAddBio = async (payload) => {
-    return apiClient.post("/bio", payload)
+  return apiClient.post("/userBio", payload);
 };
 
-export const apiGetBioById = async (id) => {
-    return apiClient.get(`/bio/ ${id}`)
+export const apiGetBio = async () => {
+  return apiClient.get("/userBio");
 };
 
-export const apiUpdateBio = async (id) => {
-    return apiClient.patch(`/bio/ ${id}`)
-};
-
-export const apiDeleteBio = async (id) => {
-    return apiClient.delete(`/bio/ ${id}`)
+export const apiUpdateBio = async (id, payload) => {
+  return apiClient.patch(`/userBio/${id}`, payload);
 };
