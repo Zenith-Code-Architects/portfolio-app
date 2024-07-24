@@ -46,88 +46,90 @@ function App() {
     },
 
     {
-      path: "dashboard", element: <DashboardLayout/>,
+      path: "dashboard", element: <DashboardLayout />,
       children: [
         {
           index: true,
-          element: <Overview/>
-       },
+          element: <Overview />
+        },
         {
           path: "bio",
-          element: <Bio/>
-       },
+          element: <Bio />
+        },
         {
           path: "bio/add-bio",
-          element: <AddBio/>
-       },
+          element: <AddBio />
+        },
         {
           path: "education",
-          element: <Education/>
-       },
+          element: <Education />
+        },
         {
           path: "education/add-education",
-          element: <AddEducation/>
-       },
+          element: <AddEducation />
+        },
         {
           path: "skills",
-          element: <Skills/>
-       },
+          element: <Skills />
+        },
         {
           path: "skills/add-skill",
-          element: <AddSkill/>
-       },
-       {
-        path: "projects",
-        element: <Projects/>
-       },
-       {
-        path: "projects/add-project",
-        element: <AddProjects/>
-       },
-       {
-        path: "experiences",
-        element: <Experiences/>
-       },
-       {
-        path: "experiences/add-experience",
-        element: <AddExperience/>
-       },
-       {
-        path: "achievements",
-        element: <Achievements/>
-       },
-       {
-        path: "achievements/add-achievement",
-        element: <AddAchievement/>
-       },
-       {
-        path: "licenses",
-        element: <Licenses/>
-       },
-       {
-        path: "licenses/add-license",
-        element: <AddLicense/>
-       }
+          element: <AddSkill />
+        },
+        {
+          path: "projects",
+          element: <Projects />
+        },
+        {
+          path: "projects/add-project",
+          element: <AddProjects />
+        },
+        {
+          path: "experiences",
+          element: <Experiences />
+        },
+        {
+          path: "experiences/add-experience",
+          element: <AddExperience />
+        },
+        {
+          path: "achievements",
+          element: <Achievements />
+        },
+        {
+          path: "achievements/add-achievement",
+          element: <AddAchievement />
+        },
+        {
+          path: "licenses",
+          element: <Licenses />
+        },
+        {
+          path: "licenses/add-license",
+          element: <AddLicense />
+        }
       ]
     },
 
-    { path: "preview/:username", element: <PreviewPage />,   loader: async ({ params }) => {
-      const username = params.username;
-      try {
-        const response = await apiGetUserDetails(username);
-        const userBioData = response?.data.user;
-        return userBioData;
-      } catch (error) {
-        toast.error("An error occured");
-        return null;
-      }
+    {
+      path: "preview/:username", element: <PreviewPage />, loader: async ({ params }) => {
+        const username = params.username;
+        try {
+          const response = await apiGetUserDetails(username);
+          console.log(response)
+          const userBioData = response?.data.user;
+          return userBioData;
+        } catch (error) {
+          toast.error("An error occured");
+          return null;
+        }
+      },
     },
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-]);
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+  ]);
 
 
 

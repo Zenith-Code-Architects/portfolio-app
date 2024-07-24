@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
     return (
         <>
             <div>
@@ -13,8 +13,8 @@ const NavBar = () => {
                             <h1 className='no-underline font-bold text-primary'>Dashboard</h1>
                         </div>
                         <div className='flex flex-row items-center gap-x-4'>
-                            <li className='border-2 p-2 rounded-full'>MB</li>
-                            <li><Link to="/preview">Preview</Link></li>
+                            <span className='border-2 p-2 rounded-full'>MB</span>
+                            <Link to={user ? `/preview/${user.userName}` : "/preview/jehu"}>Preview</Link>
                         </div>
                     </ul>
                 </nav>

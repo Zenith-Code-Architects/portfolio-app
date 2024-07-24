@@ -7,12 +7,15 @@ import Resume from './components/Resume'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { useLoaderData } from "react-router-dom";
+
 
 const PreviewPage = () => {
+  const profile = useLoaderData();
+  console.log(profile)
   return (
     <div>
-    {/* < Navbar/>   */}
-    < Hero/>  
+    < Hero profile={profile}/>  
     < About/>  
     < Skillset/>
     < Resume/>

@@ -14,7 +14,7 @@ export const apiLogout = async () => {
 }
 
 export const apiCheckUsernameExists = async(userName) => {
-    return apiClient.get(`/auth/${userName}`)
+    return apiClient.get(`/portfolio/${userName}`)
 }
 
 
