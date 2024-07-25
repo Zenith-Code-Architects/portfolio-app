@@ -35,10 +35,10 @@ const Login = () => {
 
       console.log("second: I got called");
       toast.success(res.data)
-      setTimeout(() => {
-        //redirect to dashboard
-        navigate("/dashboard");
-      }, 5000);
+      
+
+      toast.success(res.data.message);
+      navigate("/dashboard");
 
 
 
