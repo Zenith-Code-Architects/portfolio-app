@@ -21,88 +21,119 @@ import AddLicense from './pages/Dashboard/pages/Add-new/AddLicense'
 import AddBio from './pages/Dashboard/pages/Add-new/AddBio'
 import AddSkill from './pages/Dashboard/pages/Add-new/AddSkill'
 import AddProjects from './pages/Dashboard/pages/Add-new/AddProjects'
+import AuthLayout from './pages/auth/layouts/authLayout'
+import NotFound from "./pages/NotFound";
+import { toast } from "react-toastify";
+import { apiGetUserDetails } from "./services/preview";
 
 
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <LandingPage /> },
 
-    { path: "login", element: <Login /> },
-
-    { path: "signup", element: <SignUp /> },
+    {
+      element: <AuthLayout />,
+      children: [
+        {
+          path: "login",
+          element: <Login />,
+        },
+        {
+          path: "signup",
+          element: <SignUp />,
+        },
+      ],
+    },
 
     {
-      path: "dashboard", element: <DashboardLayout/>,
+      path: "dashboard", element: <DashboardLayout />,
       children: [
         {
           index: true,
-          element: <Overview/>
-       },
+          element: <Overview />
+        },
         {
           path: "bio",
-          element: <Bio/>
-       },
+          element: <Bio />
+        },
         {
           path: "bio/add-bio",
-          element: <AddBio/>
-       },
+          element: <AddBio />
+        },
         {
           path: "education",
-          element: <Education/>
-       },
+          element: <Education />
+        },
         {
           path: "education/add-education",
-          element: <AddEducation/>
-       },
+          element: <AddEducation />
+        },
         {
           path: "skills",
-          element: <Skills/>
-       },
+          element: <Skills />
+        },
         {
           path: "skills/add-skill",
-          element: <AddSkill/>
-       },
-       {
-        path: "projects",
-        element: <Projects/>
-       },
-       {
-        path: "projects/add-project",
-        element: <AddProjects/>
-       },
-       {
-        path: "experiences",
-        element: <Experiences/>
-       },
-       {
-        path: "experiences/add-experience",
-        element: <AddExperience/>
-       },
-       {
-        path: "achievements",
-        element: <Achievements/>
-       },
-       {
-        path: "achievements/add-achievement",
-        element: <AddAchievement/>
-       },
-       {
-        path: "licenses",
-        element: <Licenses/>
-       },
-       {
-        path: "licenses/add-license",
-        element: <AddLicense/>
-       }
+          element: <AddSkill />
+        },
+        {
+          path: "projects",
+          element: <Projects />
+        },
+        {
+          path: "projects/add-project",
+          element: <AddProjects />
+        },
+        {
+          path: "experiences",
+          element: <Experiences />
+        },
+        {
+          path: "experiences/add-experience",
+          element: <AddExperience />
+        },
+        {
+          path: "achievements",
+          element: <Achievements />
+        },
+        {
+          path: "achievements/add-achievement",
+          element: <AddAchievement />
+        },
+        {
+          path: "licenses",
+          element: <Licenses />
+        },
+        {
+          path: "licenses/add-license",
+          element: <AddLicense />
+        }
       ]
     },
 
-    { path: "preview", element: <PreviewPage /> },
-  ])
+    {
+      path: "preview/:username", element: <PreviewPage />, loader: async ({ params }) => {
+        const username = params.username;
+        try {
+          const response = await apiGetUserDetails(username);
+          console.log(response)
+          const userBioData = response?.data.user;
+          return userBioData;
+        } catch (error) {
+          toast.error("An error occured");
+          return null;
+        }
+      },
+    },
+    {
+      path: "*",
+      element: <NotFound />,
+    },
+  ]);
 
 
 
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 
 }
 

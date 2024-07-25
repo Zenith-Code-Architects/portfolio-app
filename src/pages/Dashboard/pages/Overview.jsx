@@ -48,14 +48,16 @@ const Overview = () => {
         apiGetLicenses(),
       ]);
 
+      console.log(totalSkills.data.skills)
+
       const newData = {
-        skills: totalSkills.length,
+        skills: totalSkills.data.skills.length,
         projects: totalProjects.length,
-        achievements: totalAchievements.length,
+        achievements: totalAchievements.data.achievement.length,
         volunteerings: totalVolunteerings.length,
-        experiences: totalExperiences.length,
-        licenses: totalLicenses.length,
-        educations: totalEducations.length,
+        experiences: totalExperiences.data.experience.length,
+        licenses: totalLicenses.data.license.length,
+        educations: totalEducations.data.education.length,
       };
 
       setData(newData);
@@ -77,7 +79,7 @@ const Overview = () => {
         <PageLoader />
       ) : (
         <div className={`p-4 bg-white ${isDataLoaded ? 'animate-fadeIn' : ''}`}>
-          <NavBar />
+  
           <PagesLayout headerText="Overview">
             <div className="">
               <div className="flex justify-between mb-4">
