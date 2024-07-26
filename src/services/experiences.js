@@ -1,21 +1,21 @@
-import { apiClient } from "./config"
+import { apiClient } from "./config";
 
 export const apiGetExperiences = async () => {
-    return apiClient.get("/experiences")
+  return apiClient.get("/experiences");
 };
 
 export const apiAddExperience = async (payload) => {
-    return apiClient.post("/experiences", payload)
+  return apiClient.post("/experiences", payload);
 };
 
 export const apiGetExperienceById = async (id) => {
-    return apiClient.get(`/experiences/ ${id}`)
+  return apiClient.get(`/experiences/${id}`);
 };
 
 export const apiUpdateExperience = async (id, payload) => {
-    return apiClient.patch(`/experiences/ ${id}`, payload)
+  return apiClient.patch(`/experiences/${id}`, payload);
 };
 
 export const apiDeleteExperience = async (id) => {
-    return apiClient.delete(`/experiences/ ${id}`)
+  return apiClient.delete(`/experiences/${id}`);
 };

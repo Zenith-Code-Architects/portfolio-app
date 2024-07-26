@@ -1,14 +1,13 @@
-import React from 'react'
-import NavBar from '../../../components/NavBar'
-import PagesLayout from '../layouts/PagesLayout'
+import React from "react";
+import NavBar from "../../../components/NavBar";
+import PagesLayout from "../layouts/PagesLayout";
 
 const Contact = () => {
   return (
     <div>
-      <NavBar/>
-      <PagesLayout/>
+      <PagesLayout />
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

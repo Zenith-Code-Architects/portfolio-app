@@ -1,26 +1,34 @@
-import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
-import React from 'react'
-import Loader from './Loader'
+import { PencilIcon, TrashIcon } from "@heroicons/react/20/solid";
+import React from "react";
+import Loader from "./Loader";
 
-
-const Tile = ({awardName, nameOfInstitution, dateObtained, description, editIcon, trashIcon, deleteOnclick}) => {
+const Tile = ({
+  awardName,
+  nameOfInstitution,
+  dateObtained,
+  description,
+  editIcon,
+  trashIcon,
+  deleteOnclick,
+  isDeleting,
+}) => {
   return (
     <div>
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-5 relative">
-
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">Achievement</h2>
           <div>
             <button className="text-gray-500 hover:text-gray-700 mr-2">
               {editIcon}
             </button>
-            <button className="text-red-500 hover:text-red-700"
-            onClick={deleteOnclick}>
-              { isDeleting ? <Loader/> : trashIcon}
+            <button
+              className="text-red-500 hover:text-red-700"
+              onClick={deleteOnclick}
+            >
+              {isDeleting ? <Loader /> : trashIcon}
             </button>
           </div>
         </div>
-
 
         <div className="mb-4">
           <span className="block text-gray-700 text-sm font-bold mb-2">
@@ -31,7 +39,6 @@ const Tile = ({awardName, nameOfInstitution, dateObtained, description, editIcon
           </div>
         </div>
 
-
         <div className="mb-4">
           <span className="block text-gray-700 text-sm font-bold mb-2">
             Name of Institution
@@ -41,7 +48,6 @@ const Tile = ({awardName, nameOfInstitution, dateObtained, description, editIcon
           </div>
         </div>
 
-
         <div className="mb-4">
           <span className="block text-gray-700 text-sm font-bold mb-2">
             Date Obtained
@@ -50,7 +56,6 @@ const Tile = ({awardName, nameOfInstitution, dateObtained, description, editIcon
             {dateObtained}
           </div>
         </div>
-
 
         <div className="mb-4">
           <span className="block text-gray-700 text-sm font-bold mb-2">
@@ -64,13 +69,8 @@ const Tile = ({awardName, nameOfInstitution, dateObtained, description, editIcon
               className="w-full"
             />
           </div>
-          <img
-            src=""
-            alt="Achievement Image"
-            className="mt-4 rounded"
-          />
+          <img src="" alt="Achievement Image" className="mt-4 rounded" />
         </div>
-
 
         <div className="mb-4">
           <span className="block text-gray-700 text-sm font-bold mb-2">
@@ -82,10 +82,7 @@ const Tile = ({awardName, nameOfInstitution, dateObtained, description, editIcon
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Tile
-
-
-
+export default Tile;
