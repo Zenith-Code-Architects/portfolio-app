@@ -6,6 +6,7 @@ import { apiDeleteSkill, apiGetSkills } from '../../../services/skills'
 import D from '../../../constants'
 import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
 import Loader from '../../../components/Loader'
+import { toast } from 'react-toastify'
 
 const Skills = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Skills = () => {
   };
 
   const handleDelete = async (_id) => {
+    setIsDeleting((prev) => ({ ...prev, [_id] : true}));
     try {
       const res = await apiDeleteSkill(_id);
       console.log(res.data)
@@ -35,6 +37,8 @@ const Skills = () => {
     } catch (error) {
       console.log(error)
       toast.error("An error occured")
+    }finally {
+      setIsDeleting((prev) => ({ ...prev, [_id]:false}))
     }
   }
 
@@ -71,7 +75,7 @@ const Skills = () => {
                                 <td className='p-4' >
                                   <button onClick={() => handleDelete(skill.id)}> 
                                     {
-                                      isDeleting ? <Loader/> : <TrashIcon width={15} height={15} className='text-red-500 cursor-pointer'/>
+                                      isDeleting[skill.id] ? <Loader width={10}/> : <TrashIcon width={15} height={15} className='text-red-500 cursor-pointer'/>
                                     } 
                                     </button>
                                   <button> <PencilIcon width={15} height={15} className='text-blue-500 cursor-pointer'/></button>

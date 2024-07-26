@@ -4,6 +4,8 @@ import PagesLayout from '../layouts/PagesLayout'
 import NavBar from '../../../components/NavBar'
 import { apiDeleteEducation, apiGetEducations } from '../../../services/education'
 import Loader from '../../../components/Loader'
+import { TrashIcon } from '@heroicons/react/20/solid'
+import { toast } from 'react-toastify'
 
 const Education = () => {
   const navigate = useNavigate();
@@ -25,6 +27,7 @@ const Education = () => {
   };
 
   const handleDelete = async (_id) => {
+    setIsDeleting((prev) => ({...prev, [_id] : true}))
     try {
       const res = await apiDeleteEducation(_id)
       console.log(res.data)
@@ -33,6 +36,8 @@ const Education = () => {
     } catch (error) {
       console.log(error)
       toast.error("An error occured")
+    } finally{
+      setIsDeleting((prev) => ({ ...prev, [_id] : false}))
     }
   }
 
@@ -43,44 +48,41 @@ const Education = () => {
 
   return (
     <>
-      <NavBar />
       <PagesLayout buttonText="Add New" onClick={() => navigate("/dashboard/education/add-education")} />
-      {isLoading ? (
-        <Loader />
-      ) : (
+      {isLoading ? 
+        <Loader /> : 
         <div className="p-4">
-          {education.length === 0 ? (
-            <p>No Education Added Yet</p>
-          ) : (
+          {education.length === 0 ?  <p>No Education Added Yet</p> : 
             <div>
               <h1 className="text-2xl font-bold mb-4">Education</h1>
               <div className="space-y-4">
-                {education.map((item) => (
-                  <div key={item._id} className="p-4 border rounded-lg shadow-sm bg-white">
+                {education.map((education, index) => (
+                  <div key={index} className="p-4 border rounded-lg shadow-sm bg-white">
                     <div className="flex justify-between items-center">
                       <div>
-                        <h2 className="text-xl font-semibold">{item.institutionName}</h2>
-                        <p className="text-gray-600">Location: {item.location}</p>
-                        <p className="text-gray-600">Program: {item.program}</p>
-                        <p className="text-gray-600">Qualification: {item.qualification}</p>
-                        <p className="text-gray-600">Grade: {item.grade}</p>
-                        <p className="text-gray-600">Enrollment Date: {item.enrollmentDate}</p>
-                        <p className="text-gray-600">Completion Date: {item.completionDate}</p>
+                        <h2 className="text-xl font-semibold">{education.institutionName}</h2>
+                        <p className="text-gray-600">Location: {education.location}</p>
+                        <p className="text-gray-600">Program: {education.program}</p>
+                        <p className="text-gray-600">Qualification: {education.qualification}</p>
+                        <p className="text-gray-600">Grade: {education.grade}</p>
+                        <p className="text-gray-600">Enrollment Date: {education.enrollmentDate}</p>
+                        <p className="text-gray-600">Completion Date: {education.completionDate}</p>
                       </div>
                       <button
-                        className="text-red-500 hover:text-red-700"
-                        onClick={() => handleDelete(item._id)}
+                        onClick={() => handleDelete(education.id)}
                       >
-                        Delete
+                        {
+                          isDeleting[education.id] ? <Loader width={10} /> : <TrashIcon width={15} height={15} className='text-red-500 cursor-pointer' />
+                        }
                       </button>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-          )}
+          }
         </div>
-      )}
+      }
     </>
   );
 };

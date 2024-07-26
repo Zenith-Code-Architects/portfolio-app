@@ -14,7 +14,7 @@ const NavBar = ({ user }) => {
                         </div>
                         <div className='flex flex-row items-center gap-x-4'>
                             <span className='border-2 p-2 rounded-full'>MB</span>
-                            <Link to={user ? `/preview/${user.userName}` : "/preview/jehu"}>Preview</Link>
+                            <Link to={`/preview/${user?.userName}`}>Preview</Link>
                         </div>
                     </ul>
                 </nav>

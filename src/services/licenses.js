@@ -8,7 +8,7 @@ export const apiAddLicense = async (payload) => {
     return apiClient.post("/licenses", payload)
 };
 
-export const apiGetapiAddLicenseById = async (id) => {
+export const apiGetLicenseById = async (id) => {
     return apiClient.get(`/licenses/ ${id}`)
 };
 

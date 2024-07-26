@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import NavBar from '../../../../components/NavBar';
 import { apiAddEducation } from '../../../../services/education';
 import { toast } from 'react-toastify';
 import Loader from '../../../../components/Loader';
@@ -39,15 +38,20 @@ const AddEducation = () => {
 
   return (
     <>
-      <NavBar />
       <div>
+
+
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+
+
           <label htmlFor="schoolName">Name Of Institution</label>
           <input 
             type="text" 
             {...register("schoolName", { required: "Name of institution is required" })} 
           />
           {errors.schoolName && <span>{errors.schoolName.message}</span>}
+
+
 
           <label htmlFor="location">Location</label>
           <input 
@@ -56,12 +60,16 @@ const AddEducation = () => {
           />
           {errors.location && <span>{errors.location.message}</span>}
 
+
+
           <label htmlFor="program">Program</label>
           <input 
             type="text" 
             {...register("program", { required: "Program Name is required" })} 
           />
           {errors.program && <span>{errors.program.message}</span>}
+
+
 
           <label htmlFor="degree">Qualification Obtained</label>
           <select 
@@ -75,11 +83,15 @@ const AddEducation = () => {
           </select>
           {errors.degree && <span>{errors.degree.message}</span>}
 
+
+
           <label htmlFor="grade">Grade</label>
           <input 
             type="text" 
             {...register("grade")} 
           />
+
+          
 
           <label htmlFor="startDate">Date of Enrollment</label>
           <input 
@@ -88,12 +100,16 @@ const AddEducation = () => {
           />
           {errors.startDate && <span>{errors.startDate.message}</span>}
 
+
+
           <label htmlFor="endDate">Date of Completion</label>
           <input 
             type="text" 
             {...register("endDate", { required: "Date of Completion is required" })} 
           />
           {errors.endDate && <span>{errors.endDate.message}</span>}
+
+
 
           <button type="submit">
             {isSubmitting ? <Loader /> : "Add Education"}

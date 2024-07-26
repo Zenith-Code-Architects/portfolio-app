@@ -17,7 +17,14 @@ const Login = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm({reValidateMode: "onBlur", mode: "all"});
+  } = useForm({ reValidateMode: "onBlur", mode: "all" });
+
+  const addToLocalStorage = (accessToken, user) => {
+    localStorage.setItem("accessToken", accessToken)
+    localStorage.setItem("firstName", user.firstName)
+    localStorage.setItem("lastName", user.lastName)
+    localStorage.setItem("userName", user.userName)
+  }
 
 
   const onSubmit = async (data) => {
@@ -30,17 +37,14 @@ const Login = () => {
         email: data.email,
         password: data.password,
       });
-      console.log("Response:", res.data)
-      localStorage.setItem("accessToken", res.data.accessToken);
+      console.log(res.data)
 
-      console.log("second: I got called");
+      addToLocalStorage(res.data.accessToken, res.data.user)
       toast.success(res.data)
       setTimeout(() => {
         //redirect to dashboard
         navigate("/dashboard");
-      }, 5000);
-
-
+      }, 500);
 
     } catch (error) {
       console.log(error);
