@@ -33,7 +33,6 @@ const Skillset = ({ skillSet }) => {
           {skillSet.map((skillset, index) => (
             <SkillsetCard
               key={index}
-              icon={skillset.icon}
               title={skillset.name}
               description={skillset.levelOfProficiency}
             />

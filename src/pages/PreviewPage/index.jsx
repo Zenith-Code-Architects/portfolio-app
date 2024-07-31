@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skillset from "./components/Skillset";
@@ -16,7 +15,7 @@ const PreviewPage = () => {
       <Hero profile={profile} />
       <About />
       <Skillset skillSet={profile.skills} />
-      <Resume />
+      <Resume education={profile.education} experiences={profile.experiences} />
       <Portfolio />
       <Contact />
       <Footer />

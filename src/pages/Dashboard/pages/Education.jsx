@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PagesLayout from "../layouts/PagesLayout";
-import NavBar from "../../../components/NavBar";
 import {
   apiDeleteEducation,
   apiGetEducations,

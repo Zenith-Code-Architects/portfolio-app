@@ -1,15 +1,11 @@
 import React from "react";
 import PagesLayout from "../layouts/PagesLayout";
-import NavBar from "../../../components/NavBar";
 import { Link, useNavigate } from "react-router-dom";
 import { PencilIcon } from "@heroicons/react/20/solid";
 import BioCards from "../../../components/BioCards";
 import BioOverview from "../../../components/BioOverview";
 import LilianZiwu from "../../../assets/images/braids.jpeg";
 import "../../../App.css";
-import LinkedIn from "../../../assets/icons/linkedin.png";
-import GitHub from "../../../assets/icons/github.png";
-import Twitter from "../../../assets/icons/x.png";
 
 const Bio = () => {
   const navigate = useNavigate();
@@ -56,7 +52,7 @@ const Bio = () => {
               result={
                 <ul className="list-disc list-inside staggered-item">
                   <li>
-                    GitHub:{" "}
+                    GitHub:
                     <Link
                       className="text-blue-500"
                       to="https://github.com/your-profile"
@@ -74,7 +70,7 @@ const Bio = () => {
                     </Link>
                   </li>
                   <li>
-                    Twitter:{" "}
+                    Twitter:
                     <Link
                       className="text-blue-500"
                       to="https://twitter.com/your-profile"
