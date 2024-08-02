@@ -8,6 +8,7 @@ import {
 import Loader from "../../../components/Loader";
 import { TrashIcon } from "@heroicons/react/20/solid";
 import { toast } from "react-toastify";
+import PageLoader from "../components/PageLoader";
 
 const Education = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const Education = () => {
         onClick={() => navigate("/dashboard/education/add-education")}
       />
       {isLoading ? (
-        <Loader />
+        <PageLoader />
       ) : (
         <div className="p-4">
           {education?.length === 0 ? (

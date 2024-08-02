@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../../../components/NavBar";
 import { useNavigate } from "react-router-dom";
 import PagesLayout from "../layouts/PagesLayout";
 import { apiDeleteSkill, apiGetSkills } from "../../../services/skills";
-import D from "../../../constants";
 import { PencilIcon, TrashIcon } from "@heroicons/react/20/solid";
 import Loader from "../../../components/Loader";
 import { toast } from "react-toastify";

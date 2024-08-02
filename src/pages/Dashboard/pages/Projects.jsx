@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { apiDeleteProject, apiGetProjects } from "../../../services/projects";
 import Loader from "../../../components/Loader";
 import { toast } from "react-toastify";
+import PageLoader from "../components/PageLoader";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const Projects = () => {
         onClick={() => navigate("/dashboard/projects/add-project")}
       />
       {isLoading ? (
-        <Loader />
+        <PageLoader />
       ) : (
         <div>
           {projects.length == 0 ? (

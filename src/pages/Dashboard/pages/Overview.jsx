@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
-import NavBar from "../../../components/NavBar"
-import PagesLayout from "../layouts/PagesLayout"
-import OverviewCard from "../../../components/OverviewCard"
-import { ShoppingBagIcon } from "@heroicons/react/20/solid"
+import { useEffect, useState } from "react";
+import PagesLayout from "../layouts/PagesLayout";
+import OverviewCard from "../../../components/OverviewCard";
+import { ShoppingBagIcon } from "@heroicons/react/20/solid";
 import { apiGetSkills } from "../../../services/skills";
 import { apiGetAchievements } from "../../../services/achievements";
 import { apiGetProjects } from "../../../services/projects";
@@ -11,9 +10,6 @@ import { apiGetExperiences } from "../../../services/experiences";
 import { apiGetVolunteerings } from "../../../services/volunteering";
 import { apiGetLicenses } from "../../../services/licenses";
 import PageLoader from "../components/PageLoader";
-import { useOutletContext } from "react-router-dom"
-
-
 
 const Overview = () => {
   const [data, setData] = useState({
@@ -49,7 +45,7 @@ const Overview = () => {
         apiGetLicenses(),
       ]);
 
-      console.log(totalSkills.data.skills)
+      console.log(totalSkills.data.skills);
 
       const newData = {
         skills: totalSkills.data.skills.length,
@@ -79,12 +75,13 @@ const Overview = () => {
       {isLoading ? (
         <PageLoader />
       ) : (
-        <div className={`p-4 bg-white ${isDataLoaded ? 'animate-fadeIn' : ''}`}>
-  
+        <div className={`p-4 bg-white ${isDataLoaded ? "animate-fadeIn" : ""}`}>
           <PagesLayout headerText="Overview">
             <div className="">
               <div className="flex justify-between mb-4">
-                <p className="text-2xl">Hello Lilian, welcome to your Dashboard</p>
+                <p className="text-2xl">
+                  Hello Lilian, welcome to your Dashboard
+                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5 my-5">
@@ -147,9 +144,3 @@ const Overview = () => {
 };
 
 export default Overview;
-
-
-
-
-
-

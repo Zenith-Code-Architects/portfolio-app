@@ -8,6 +8,7 @@ import {
 } from "../../../services/achievements";
 import Loader from "../../../components/Loader";
 import { PencilIcon, TrashIcon } from "@heroicons/react/20/solid";
+import PageLoader from "../components/PageLoader";
 
 const Achievements = () => {
   const navigate = useNavigate();
@@ -45,17 +46,16 @@ const Achievements = () => {
 
   return (
     <div>
-      <PagesLayout
-        headerText="Achievements"
-        buttonText="Add New"
-        onClick={() => navigate("/dashboard/achievements/add-achievement")}
-        children=""
-      />
-
       {isLoading ? (
-        <Loader />
+        <PageLoader />
       ) : (
         <div>
+          <PagesLayout
+            headerText="Achievements"
+            buttonText="Add New"
+            onClick={() => navigate("/dashboard/achievements/add-achievement")}
+            children=""
+          />
           {achievements?.length == 0 ? (
             <p>No Achievements added yet</p>
           ) : (

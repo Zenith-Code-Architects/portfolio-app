@@ -7,6 +7,7 @@ import {
   apiGetExperiences,
 } from "../../../services/experiences";
 import { toast } from "react-toastify";
+import PageLoader from "../components/PageLoader";
 
 const Experiences = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const Experiences = () => {
       />
 
       {isLoading ? (
-        <Loader />
+        <PageLoader />
       ) : (
         <div>
           {experiences?.length == 0 ? (
